@@ -1,13 +1,11 @@
 body {
     font-weight: 400;
-    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.7);
+    text-shadow: 0 1px 1px rgba(128, 128, 128, 0.4);
 }
 
 pre, code {
     border: none;
     border-radius: 0;
-    background-color: #f9f9f9;
-    font-size: 0.85em;
 }
 
 pre {
@@ -56,3 +54,6 @@ code {
     padding-left: 0;
     padding-right: 0;
 }
+
+.highlight pre { background-color: transparent; }
+.highlight pre code { font-size: 1em; }
