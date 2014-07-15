@@ -14,10 +14,10 @@ codeurl: 'https://github.com/redstagfulfillment'
 # Default categories (in order) to appear in the navigation
 sections: [
     ['doc', 'Documentation'],
-#    ['tut', 'Tutorial'],
-    ['ref', 'Reference'],
+    ['tut', 'Tutorial'],
+    ['ref', 'API Reference'],
     ['dev', 'Developers'],
-#    ['post', 'Posts']
+    ['post', 'Posts']
 ]
 
 # Keep as an empty string if served up at the root. If served up at a specific
