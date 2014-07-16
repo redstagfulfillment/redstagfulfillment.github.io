@@ -16,6 +16,14 @@ code {
     color: inherit;
 }
 
+h1 {
+    margin-top: 1.5em;
+}
+
+h1 code, h2 code, h3 code {
+    font-size: 70%;
+}
+
 #header {
     border-bottom: 1px solid #eee;
     margin-bottom: 20px;
@@ -55,5 +63,27 @@ code {
     padding-right: 0;
 }
 
+/* Fix highlighting with dark background */
 .highlight pre { background-color: transparent; }
-.highlight pre code { font-size: 1em; }
+.highlight pre code { font-size: 1em; color: #ccc; }
+
+
+.api-endpoint-request {
+    padding: 0;
+    border-radius: 1px 1px 0 0;
+}
+.api-endpoint-request pre {
+    background: #526066;
+    color: #fff;
+    margin: 0;
+}
+.api-endpoint-request-type {
+    display: block;
+    float: left;
+    background: #323e42;
+    font-size: 15px;
+    padding: 12px 26px;
+    margin: -12px 24px -12px -12px;
+    color: #fff;
+    border-radius: 1px 0 0 0;
+}
