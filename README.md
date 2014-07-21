@@ -1,3 +1,3 @@
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/bruth/jekyll-docs-template/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+This repository is for managing the API docs.
 
-Read the docs: http://bruth.github.io/jekyll-docs-template
+Read the docs at http://docs.redstagfulfillment.com/
