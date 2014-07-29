@@ -9,6 +9,8 @@ order: 110
 
 #### Filters
 
+It is required to always specify the filter type for the filters. Supported filter types: eq, neq, gt, lt, gteq, lteq, from, to, in, nin, null, notnull. Others types are not supported.
+
 <table class="table-striped">
 <tr>
   <th>eq</th>
@@ -58,6 +60,42 @@ order: 110
   	<pre><code>{ "created_at" : { "from" : "2014-07-12 14:12:47", "datetime" : true } }</code></pre>
   	<pre><code>{ "created_at" : { "from" : "2014-07-12" } }</code></pre>
   	The "From" date filter.
+  </td>	
+</tr>
+<tr>
+  <th>to</th>
+  <td>
+  	<pre><code>{ "created_at" : { "to" : "2014-07-12 14:12:47", "datetime" : true } }</code></pre>
+  	<pre><code>{ "created_at" : { "to" : "2014-07-12" } }</code></pre>
+  	The "To" date filter.
+  </td>	
+</tr>
+<tr>
+  <th>in</th>
+  <td>
+  	<pre><code>{ "order_id" : { "in" : [ 114, 115 ] } }</code></pre>
+  	The "In" filter.
+  </td>	
+</tr>
+<tr>
+  <th>nin</th>
+  <td>
+  	<pre><code>{ "order_id" : { "nin" : [ 114, 115 ] } }</code></pre>
+  	The "Not In" filter.
+  </td>	
+</tr>
+<tr>
+  <th>null</th>
+  <td>
+  	<pre><code>{ "target_ship_date" : { "null" : 1 } }</code></pre>
+  	The "NULL" filter.
+  </td>	
+</tr>
+<tr>
+  <th>notnull</th>
+  <td>
+  	<pre><code>{ "target_ship_date" : { "notnull" : 1 } }</code></pre>
+  	The "Not NULL" filter.
   </td>	
 </tr>
 </table>
