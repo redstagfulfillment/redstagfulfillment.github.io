@@ -9,7 +9,7 @@ order: 110
 
 #### Filters
 
-It is required to always specify the filter type for the filters. Supported filter types: eq, neq, gt, lt, gteq, lteq, from, to, in, nin, null, notnull. Others types are not supported.
+It is required to always specify the filter type for the filters. Supported filter types are listed below. Others types are not supported.
 
 <table class="table-striped">
 <tr>
