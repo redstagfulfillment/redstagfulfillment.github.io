@@ -8,9 +8,10 @@
             {% if forloop.first %}
                 <li class=nav-header>{{ label }}</li>
             {% endif %}
-            <li data-order="{{ page.order }}"><a href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a></li>
-            {% if page.parent %}
-            *
+            {% if page.title %}
+                {% unless page.parent %}
+                    <li data-order="{{ page.order }}"><a href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a></li>
+                {% endunless %}
             {% endif %}
         {% endfor %}
     {% endfor %}
