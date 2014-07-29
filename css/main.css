@@ -91,3 +91,7 @@ h1 code, h2 code, h3 code {
 table.table th:nth-child(1) {  
     width: 250px;
 }
+
+li.sub-section {
+    padding-left: 10px;
+}
