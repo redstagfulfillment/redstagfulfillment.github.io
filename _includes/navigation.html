@@ -15,7 +15,7 @@
             {% endif %}
             <!-- Render sub-sections -->
             {% for subpage in site.categories[attr] %}
-                {% if subpage.title and subpage.parent == page.title %}
+                {% if subpage.title and subpage.parent and subpage.parent == page.title %}
                     <li data-order="{{ subpage.order }}" class="sub-section"><a href="{{ site.baseurl }}{{ subpage.url }}">{{ subpage.title }}</a></li>
                 {% endif %}
             {% endfor %}
