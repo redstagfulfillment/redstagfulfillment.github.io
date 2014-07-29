@@ -14,13 +14,15 @@
                 {% endunless %}
             {% endif %}
             <!-- Render sub-sections -->
-            <ul class="nav nav-list">
-            {% for subpage in site.categories[attr] %}
-                {% if subpage.title and subpage.parent == page.title %}
-                    <li data-order="{{ subpage.order }}" class="sub-section"><a href="{{ site.baseurl }}{{ subpage.url }}">{{ subpage.title }}</a></li>
-                {% endif %}
-            {% endfor %}
-            </ul>
+            <li>
+                <ul class="nav nav-list">
+                {% for subpage in site.categories[attr] %}
+                    {% if subpage.title and subpage.parent == page.title %}
+                        <li data-order="{{ subpage.order }}" class="sub-section"><a href="{{ site.baseurl }}{{ subpage.url }}">{{ subpage.title }}</a></li>
+                    {% endif %}
+                {% endfor %}
+                </ul>
+            </li>
         {% endfor %}
     {% endfor %}
 <!-- List additional links. It is recommended to add a divider
