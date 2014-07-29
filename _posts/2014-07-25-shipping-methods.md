@@ -155,15 +155,15 @@ RSF now supports "UPS" and "FedEx" carriers. Supported methods are listed below.
 <tr>
   <th></th>
   <td>
-  	<pre><code>{ "shipping_method" : "" }</code></pre>
-  	The "" method.
+  	<pre><code>{ "shipping_method" : "fedex_FEDEX_FREIGHT" }</code></pre>
+  	The "Federal Express - Freight" method.
   </td>	
 </tr>
 <tr>
   <th></th>
   <td>
-  	<pre><code>{ "shipping_method" : "" }</code></pre>
-  	The "" method.
+  	<pre><code>{ "shipping_method" : "fedex_FEDEX_NATIONAL_FREIGHT" }</code></pre>
+  	The "Federal Express - National Freight" method.
   </td>	
 </tr>
 <tr>
