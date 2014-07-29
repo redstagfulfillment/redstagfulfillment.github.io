@@ -106,6 +106,76 @@ RSF now supports "UPS" and "FedEx" carriers. Supported methods are listed below.
 <tr>
   <th></th>
   <td>
+  	<pre><code>{ "shipping_method" : "fedex_INTERNATIONAL_FIRST" }</code></pre>
+  	The "Federal Express - International First" method.
+  </td>	
+</tr>
+<tr>
+  <th></th>
+  <td>
+  	<pre><code>{ "shipping_method" : "fedex_INTERNATIONAL_GROUND" }</code></pre>
+  	The "Federal Express - International Ground" method.
+  </td>	
+</tr>
+<tr>
+  <th></th>
+  <td>
+  	<pre><code>{ "shipping_method" : "fedex_INTERNATIONAL_PRIORITY" }</code></pre>
+  	The "Federal Express - International Priority" method.
+  </td>	
+</tr>
+<tr>
+  <th></th>
+  <td>
+  	<pre><code>{ "shipping_method" : "fedex_INTERNATIONAL_PRIORITY_FREIGHT" }</code></pre>
+  	The "Federal Express - Intl Priority Freight" method.
+  </td>	
+</tr>
+<tr>
+  <th></th>
+  <td>
+  	<pre><code>{ "shipping_method" : "fedex_PRIORITY_OVERNIGHT" }</code></pre>
+  	The "Federal Express - Priority Overnight" method.
+  </td>	
+</tr>
+<tr>
+  <th></th>
+  <td>
+  	<pre><code>{ "shipping_method" : "fedex_SMART_POST" }</code></pre>
+  	The "Federal Express - Smart Post" method.
+  </td>	
+</tr>
+<tr>
+  <th></th>
+  <td>
+  	<pre><code>{ "shipping_method" : "fedex_STANDARD_OVERNIGHT" }</code></pre>
+  	The "Federal Express - Standard Overnight" method.
+  </td>	
+</tr>
+<tr>
+  <th></th>
+  <td>
+  	<pre><code>{ "shipping_method" : "" }</code></pre>
+  	The "" method.
+  </td>	
+</tr>
+<tr>
+  <th></th>
+  <td>
+  	<pre><code>{ "shipping_method" : "" }</code></pre>
+  	The "" method.
+  </td>	
+</tr>
+<tr>
+  <th></th>
+  <td>
+  	<pre><code>{ "shipping_method" : "" }</code></pre>
+  	The "" method.
+  </td>	
+</tr>
+<tr>
+  <th></th>
+  <td>
   	<pre><code>{ "shipping_method" : "" }</code></pre>
   	The "" method.
   </td>	
