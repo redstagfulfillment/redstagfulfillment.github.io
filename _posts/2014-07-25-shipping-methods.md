@@ -7,163 +7,63 @@ date: 2014-07-29 12:12:51
 order: 130
 ---
 
-RSF now supports "UPS" and "FedEx" carriers. Supported methods are listed below. Others methods are not supported.
+The following shipping methods are supported by the API where a "shipping_method" parameter is used.
 
 #### FedEx Methods
 
 <table class="table-striped shipping-methods">
 <tr>
-  <th>flatrate_flatrate</th>
-  <td>
-  	<pre><code>{ "shipping_method" : "flatrate_flatrate" }</code></pre>
-  	The "Flat Rate - Fixed" method.
-  </td>	
-</tr>
-<tr>
-  <th>fedex_EUROPE_FIRST_INTERNATIONAL_PRIORITY</th>
-  <td>
-  	<pre><code>{ "shipping_method" : "fedex_EUROPE_FIRST_INTERNATIONAL_PRIORITY" }</code></pre>
-  	The "Federal Express - Europe First Priority" method.
-  </td>	
-</tr>
-<tr>
-  <th>fedex_FEDEX_1_DAY_FREIGHT</th>
-  <td>
-  	<pre><code>{ "shipping_method" : "fedex_FEDEX_1_DAY_FREIGHT" }</code></pre>
-  	The "Federal Express - 1 Day Freight" method.
-  </td>	
-</tr>
-<tr>
-  <th>fedex_FEDEX_2_DAY_FREIGHT</th>
-  <td>
-  	<pre><code>{ "shipping_method" : "fedex_FEDEX_2_DAY_FREIGHT" }</code></pre>
-  	The "Federal Express - 2 Day Freight" method.
-  </td>	
-</tr>
-<tr>
   <th>fedex_FEDEX_2_DAY</th>
   <td>
-  	<pre><code>{ "shipping_method" : "fedex_FEDEX_2_DAY" }</code></pre>
-  	The "Federal Express - 2 Day" method.
+  	Federal Express - 2 Day
   </td>	
 </tr>
 <tr>
   <th>fedex_FEDEX_2_DAY_AM</th>
   <td>
-  	<pre><code>{ "shipping_method" : "fedex_FEDEX_2_DAY_AM" }</code></pre>
-  	The "Federal Express - 2 Day AM" method.
-  </td>	
-</tr>
-<tr>
-  <th>fedex_FEDEX_3_DAY_FREIGHT</th>
-  <td>
-  	<pre><code>{ "shipping_method" : "fedex_FEDEX_3_DAY_FREIGHT" }</code></pre>
-  	The "Federal Express - 3 Day Freight" method.
+  	Federal Express - 2 Day AM
   </td>	
 </tr>
 <tr>
   <th>fedex_FEDEX_EXPRESS_SAVER</th>
   <td>
-  	<pre><code>{ "shipping_method" : "fedex_FEDEX_EXPRESS_SAVER" }</code></pre>
-  	The "Federal Express - Express Saver" method.
+  	Federal Express - Express Saver
   </td>	
 </tr>
 <tr>
   <th>fedex_FEDEX_GROUND</th>
   <td>
-  	<pre><code>{ "shipping_method" : "fedex_FEDEX_GROUND" }</code></pre>
-  	The "Federal Express - Ground" method.
+  	Federal Express - Ground
   </td>	
 </tr>
 <tr>
   <th>fedex_FIRST_OVERNIGHT</th>
   <td>
-  	<pre><code>{ "shipping_method" : "fedex_FIRST_OVERNIGHT" }</code></pre>
-  	The "Federal Express - First Overnight" method.
+  	Federal Express - First Overnight
   </td>	
 </tr>
 <tr>
   <th>fedex_GROUND_HOME_DELIVERY</th>
   <td>
-  	<pre><code>{ "shipping_method" : "fedex_GROUND_HOME_DELIVERY" }</code></pre>
-  	The "Federal Express - Home Delivery" method.
-  </td>	
-</tr>
-<tr>
-  <th>fedex_INTERNATIONAL_ECONOMY</th>
-  <td>
-  	<pre><code>{ "shipping_method" : "fedex_INTERNATIONAL_ECONOMY" }</code></pre>
-  	The "Federal Express - International Economy" method.
-  </td>	
-</tr>
-<tr>
-  <th>fedex_INTERNATIONAL_ECONOMY_FREIGHT</th>
-  <td>
-  	<pre><code>{ "shipping_method" : "fedex_INTERNATIONAL_ECONOMY_FREIGHT" }</code></pre>
-  	The "Federal Express - Intl Economy Freight" method.
-  </td>	
-</tr>
-<tr>
-  <th>fedex_INTERNATIONAL_FIRST</th>
-  <td>
-  	<pre><code>{ "shipping_method" : "fedex_INTERNATIONAL_FIRST" }</code></pre>
-  	The "Federal Express - International First" method.
-  </td>	
-</tr>
-<tr>
-  <th>fedex_INTERNATIONAL_GROUND</th>
-  <td>
-  	<pre><code>{ "shipping_method" : "fedex_INTERNATIONAL_GROUND" }</code></pre>
-  	The "Federal Express - International Ground" method.
-  </td>	
-</tr>
-<tr>
-  <th>fedex_INTERNATIONAL_PRIORITY</th>
-  <td>
-  	<pre><code>{ "shipping_method" : "fedex_INTERNATIONAL_PRIORITY" }</code></pre>
-  	The "Federal Express - International Priority" method.
-  </td>	
-</tr>
-<tr>
-  <th>fedex_INTERNATIONAL_PRIORITY_FREIGHT</th>
-  <td>
-  	<pre><code>{ "shipping_method" : "fedex_INTERNATIONAL_PRIORITY_FREIGHT" }</code></pre>
-  	The "Federal Express - Intl Priority Freight" method.
+  	Federal Express - Home Delivery
   </td>	
 </tr>
 <tr>
   <th>fedex_PRIORITY_OVERNIGHT</th>
   <td>
-  	<pre><code>{ "shipping_method" : "fedex_PRIORITY_OVERNIGHT" }</code></pre>
-  	The "Federal Express - Priority Overnight" method.
+  	Federal Express - Priority Overnight
   </td>	
 </tr>
 <tr>
   <th>fedex_SMART_POST</th>
   <td>
-  	<pre><code>{ "shipping_method" : "fedex_SMART_POST" }</code></pre>
-  	The "Federal Express - Smart Post" method.
+  	Federal Express - Smart Post
   </td>	
 </tr>
 <tr>
   <th>fedex_STANDARD_OVERNIGHT</th>
   <td>
-  	<pre><code>{ "shipping_method" : "fedex_STANDARD_OVERNIGHT" }</code></pre>
-  	The "Federal Express - Standard Overnight" method.
-  </td>	
-</tr>
-<tr>
-  <th>fedex_FEDEX_FREIGHT</th>
-  <td>
-  	<pre><code>{ "shipping_method" : "fedex_FEDEX_FREIGHT" }</code></pre>
-  	The "Federal Express - Freight" method.
-  </td>	
-</tr>
-<tr>
-  <th>fedex_FEDEX_NATIONAL_FREIGHT</th>
-  <td>
-  	<pre><code>{ "shipping_method" : "fedex_FEDEX_NATIONAL_FREIGHT" }</code></pre>
-  	The "Federal Express - National Freight" method.
+  	Federal Express - Standard Overnight
   </td>	
 </tr>
 </table>
@@ -172,80 +72,39 @@ RSF now supports "UPS" and "FedEx" carriers. Supported methods are listed below.
 
 <table class="table-striped shipping-methods">
 <tr>
-  <th>ups_11</th>
+  <th>ups_01</th>
   <td>
-  	<pre><code>{ "shipping_method" : "ups_11" }</code></pre>
-  	The "United Parcel Service - UPS Standard" method.
-  </td>	
+  	United Parcel Service - UPS Next Day Air
+  </td>
+</tr>
+<tr>
+  <th>ups_02</th>
+  <td>
+  	United Parcel Service - UPS Second Day Air
+  </td>
+</tr>
+<tr>
+  <th>ups_03</th>
+  <td>
+  	United Parcel Service - UPS Ground
+  </td>
 </tr>
 <tr>
   <th>ups_12</th>
   <td>
-  	<pre><code>{ "shipping_method" : "ups_12" }</code></pre>
-  	The "United Parcel Service - UPS Three-Day Select" method.
+  	United Parcel Service - UPS Three-Day Select
   </td>	
 </tr>
 <tr>
   <th>ups_14</th>
   <td>
-  	<pre><code>{ "shipping_method" : "ups_14" }</code></pre>
-  	The "United Parcel Service - UPS Next Day Air Early A.M." method.
-  </td>	
-</tr>
-<tr>
-  <th>ups_54</th>
-  <td>
-  	<pre><code>{ "shipping_method" : "ups_54" }</code></pre>
-  	The "United Parcel Service - UPS Worldwide Express Plus" method.
+  	United Parcel Service - UPS Next Day Air Early A.M.
   </td>	
 </tr>
 <tr>
   <th>ups_59</th>
   <td>
-  	<pre><code>{ "shipping_method" : "ups_59" }</code></pre>
-  	The "United Parcel Service - UPS Second Day Air A.M." method.
-  </td>	
-</tr>
-<tr>
-  <th>ups_65</th>
-  <td>
-  	<pre><code>{ "shipping_method" : "ups_65" }</code></pre>
-  	The "United Parcel Service - UPS Worldwide Saver" method.
-  </td>	
-</tr>
-<tr>
-  <th>ups_01</th>
-  <td>
-  	<pre><code>{ "shipping_method" : "ups_01" }</code></pre>
-  	The "United Parcel Service - UPS Next Day Air" method.
-  </td>	
-</tr>
-<tr>
-  <th>ups_02</th>
-  <td>
-  	<pre><code>{ "shipping_method" : "ups_02" }</code></pre>
-  	The "United Parcel Service - UPS Second Day Air" method.
-  </td>	
-</tr>
-<tr>
-  <th>ups_03</th>
-  <td>
-  	<pre><code>{ "shipping_method" : "ups_03" }</code></pre>
-  	The "United Parcel Service - UPS Ground" method.
-  </td>	
-</tr>
-<tr>
-  <th>ups_07</th>
-  <td>
-  	<pre><code>{ "shipping_method" : "ups_07" }</code></pre>
-  	The "United Parcel Service - UPS Worldwide Express" method.
-  </td>	
-</tr>
-<tr>
-  <th>ups_08</th>
-  <td>
-  	<pre><code>{ "shipping_method" : "ups_08" }</code></pre>
-  	The "United Parcel Service - UPS Worldwide Expedited" method.
+  	United Parcel Service - UPS Second Day Air A.M.
   </td>	
 </tr>
 </table>
