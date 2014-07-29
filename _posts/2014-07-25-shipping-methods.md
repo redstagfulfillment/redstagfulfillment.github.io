@@ -200,38 +200,52 @@ RSF now supports "UPS" and "FedEx" carriers. Supported methods are listed below.
   </td>	
 </tr>
 <tr>
-  <th></th>
+  <th>ups_59</th>
   <td>
-  	<pre><code>{ "shipping_method" : "" }</code></pre>
-  	The "" method.
+  	<pre><code>{ "shipping_method" : "ups_59" }</code></pre>
+  	The "United Parcel Service - UPS Second Day Air A.M." method.
   </td>	
 </tr>
 <tr>
-  <th></th>
+  <th>ups_65</th>
   <td>
-  	<pre><code>{ "shipping_method" : "" }</code></pre>
-  	The "" method.
+  	<pre><code>{ "shipping_method" : "ups_65" }</code></pre>
+  	The "United Parcel Service - UPS Worldwide Saver" method.
   </td>	
 </tr>
 <tr>
-  <th></th>
+  <th>ups_01</th>
   <td>
-  	<pre><code>{ "shipping_method" : "" }</code></pre>
-  	The "" method.
+  	<pre><code>{ "shipping_method" : "ups_01" }</code></pre>
+  	The "United Parcel Service - UPS Next Day Air" method.
   </td>	
 </tr>
 <tr>
-  <th></th>
+  <th>ups_02</th>
   <td>
-  	<pre><code>{ "shipping_method" : "" }</code></pre>
-  	The "" method.
+  	<pre><code>{ "shipping_method" : "ups_02" }</code></pre>
+  	The "United Parcel Service - UPS Second Day Air" method.
   </td>	
 </tr>
 <tr>
-  <th></th>
+  <th>ups_03</th>
   <td>
-  	<pre><code>{ "shipping_method" : "" }</code></pre>
-  	The "" method.
+  	<pre><code>{ "shipping_method" : "ups_03" }</code></pre>
+  	The "United Parcel Service - UPS Ground" method.
+  </td>	
+</tr>
+<tr>
+  <th>ups_07</th>
+  <td>
+  	<pre><code>{ "shipping_method" : "ups_07" }</code></pre>
+  	The "United Parcel Service - UPS Worldwide Express" method.
+  </td>	
+</tr>
+<tr>
+  <th>ups_08</th>
+  <td>
+  	<pre><code>{ "shipping_method" : "ups_08" }</code></pre>
+  	The "United Parcel Service - UPS Worldwide Expedited" method.
   </td>	
 </tr>
 </table>
