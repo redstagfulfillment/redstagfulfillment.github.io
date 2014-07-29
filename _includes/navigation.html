@@ -9,8 +9,8 @@
                 <li class=nav-header>{{ label }}</li>
             {% endif %}
             <li data-order="{{ page.order }}"><a href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a></li>
-            {% if page.parent != '' %}
-            PARENT TEST IS OK
+            {% if page.parent %}
+            *
             {% endif %}
         {% endfor %}
     {% endfor %}
