@@ -11,7 +11,7 @@ RSF now supports "UPS" and "FedEx" carriers. Supported methods are listed below.
 
 #### FedEx Methods
 
-<table class="table-striped">
+<table class="table-striped shipping-methods">
 <tr>
   <th>flatrate_flatrate</th>
   <td>
@@ -170,7 +170,7 @@ RSF now supports "UPS" and "FedEx" carriers. Supported methods are listed below.
 
 #### UPS Methods
 
-<table class="table-striped">
+<table class="table-striped shipping-methods">
 <tr>
   <th>ups_11</th>
   <td>
