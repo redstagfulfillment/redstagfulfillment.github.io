@@ -1,6 +1,7 @@
 # Site title and subtitle. This is used in _includes/header.html
 title: 'Red Stag Fulfillment'
 subtitle: 'Get integrated with Red Stag Fulfillment!'
+logo: '/images/logo.png'
 
 # Enable/show navigation. There are there options:
 #   0 - always hide

@@ -32,6 +32,10 @@ h2 code, h3 code { font-size: 70%; }
     text-decoration: none;
 }
 
+#header small {
+    margin-left: 4em;
+}
+
 #footer {
     margin: 20px 0;
     font-size: 0.85em;
