@@ -121,7 +121,7 @@ Get all inventory:
 
 ## Entity Properties
 
-<h3 id="invntory_item">
+<h3 id="inventory_item">
     Inventory Item
 </h3>
 
