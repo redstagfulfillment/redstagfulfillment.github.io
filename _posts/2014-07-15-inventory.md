@@ -14,6 +14,8 @@ order: 10
 
  * [Inventory Item](#inventory_item)
 
+----
+
 RSF tracks inventory using the following statuses:
 
  * **Expected** - Listed on open ASNs, RMAs and Other Deliveries that have not yet been received.
@@ -29,6 +31,7 @@ Additionally, products have two flags that can be set which will affect whether 
  * **Status** - Enabled/Disabled - If "Disabled", the product is effectively deleted and will not appear in responses to inventory requests.
  * **Visibility** - Visible/Not Visible - If "Not Visible", the product will not appear in the inventory list but may still be ordered via the Merchant Panel.
 
+
 <h1 id="inventory_list">
 inventory.list
 <code>(string|array|null $skus)</code>
@@ -38,7 +41,8 @@ Get inventory levels for one or more products by SKU.
 
 #### Parameters
 
-<table class="table"><thead><tr><th>order</th><th>description</th></tr></thead>
+<table class="table">
+<thead><tr><th>order</th><th>description</th></tr></thead>
 <tbody>
     <tr>
         <td>0</td>
@@ -48,7 +52,8 @@ Get inventory levels for one or more products by SKU.
         <li>array - Get inventory for the specified products by SKU.</li>
         </ul></td>
     </tr>
-</tbody></table>
+</tbody>
+</table>
 
 #### Return Value
 
