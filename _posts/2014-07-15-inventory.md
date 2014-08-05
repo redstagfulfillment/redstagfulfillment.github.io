@@ -10,6 +10,8 @@ order: 10
 
  * [inventory.list](#inventory_list)
 
+----
+
 #### Entity Properties
 
  * [Inventory Item](#inventory_item)
