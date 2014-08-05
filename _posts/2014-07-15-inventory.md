@@ -6,6 +6,14 @@ date: 2014-07-15 17:27:49
 order: 10
 ---
 
+#### Methods
+
+ * [inventory.list](#inventory_list)
+
+#### Entity Properties
+
+ * [Inventory Item](#inventory_item)
+
 RSF tracks inventory using the following statuses:
 
  * **Expected** - Listed on open ASNs, RMAs and Other Deliveries that have not yet been received.
@@ -21,51 +29,10 @@ Additionally, products have two flags that can be set which will affect whether 
  * **Status** - Enabled/Disabled - If "Disabled", the product is effectively deleted and will not appear in responses to inventory requests.
  * **Visibility** - Visible/Not Visible - If "Not Visible", the product will not appear in the inventory list but may still be ordered via the Merchant Panel.
 
-#### Properties
-
-<table class="table-striped">
-<tr><th>sku</th>
-<td>
-	<pre><code>{ "sku" : "BlueWidget-1" }</code></pre>
-	A unique identifier for a product. The SKU does appear on the packing slip. It is recommended that this be human-readable
-	and end with a per-pack quantity to facilitate proper receiving. For example, a single blue widget may be "BlueWidget-1" and
-	a pack of 5 blue widgets may be "BlueWidget-5". Maximum character length is 64.
-</tr>
-<tr><th>qty_expected</th>
-<td>
-	<pre><code>{ "qty_expected" : 1 }</code></pre>
-	The "Expected" quantity.
-</tr>
-<tr><th>qty_processed</th>
-<td>
-	<pre><code>{ "qty_processed" : 1 }</code></pre>
-	The "Processed" quantity.
-</tr>
-<tr><th>qty_putaway</th>
-<td>
-	<pre><code>{ "qty_putaway" : 1 }</code></pre>
-	The "Put-Away" quantity.
-</tr>
-<tr><th>qty_available</th>
-<td>
-	<pre><code>{ "qty_available" : 1 }</code></pre>
-	The "Available" quantity.
-</tr>
-<tr><th>qty_reserved</th>
-<td>
-	<pre><code>{ "qty_reserved" : 1 }</code></pre>
-	The "Reserved" quantity.
-</tr>
-<tr><th>qty_picked</th>
-<td>
-	<pre><code>{ "qty_picked" : 1 }</code></pre>
-	The "Picked" quantity.
-</tr>
-</table>
-
-
-inventory.list `(string|array|null $skus)`
-====
+<h1 id="inventory_list">
+inventory.list
+<code>(string|array|null $skus)</code>
+</h1>
 
 Get inventory levels for one or more products by SKU.
 
@@ -85,7 +52,7 @@ Get inventory levels for one or more products by SKU.
 
 #### Return Value
 
-An array of objects or an empty array if there were no matching SKUs.
+An array of [Inventory Items](#inventory_item) or an empty array if there were no matching SKUs.
 
 #### Example Request
 
@@ -146,3 +113,49 @@ Get all inventory:
     ]
 }
 ```
+
+## Entity Properties
+
+<h3 id="invntory_item">
+    Inventory Item
+</h3>
+
+<table class="table-striped">
+<tr><th>sku</th>
+<td>
+	<pre><code>{ "sku" : "BlueWidget-1" }</code></pre>
+	A unique identifier for a product. The SKU does appear on the packing slip. It is recommended that this be human-readable
+	and end with a per-pack quantity to facilitate proper receiving. For example, a single blue widget may be "BlueWidget-1" and
+	a pack of 5 blue widgets may be "BlueWidget-5". Maximum character length is 64.
+</tr>
+<tr><th>qty_expected</th>
+<td>
+	<pre><code>{ "qty_expected" : 1 }</code></pre>
+	The "Expected" quantity.
+</tr>
+<tr><th>qty_processed</th>
+<td>
+	<pre><code>{ "qty_processed" : 1 }</code></pre>
+	The "Processed" quantity.
+</tr>
+<tr><th>qty_putaway</th>
+<td>
+	<pre><code>{ "qty_putaway" : 1 }</code></pre>
+	The "Put-Away" quantity.
+</tr>
+<tr><th>qty_available</th>
+<td>
+	<pre><code>{ "qty_available" : 1 }</code></pre>
+	The "Available" quantity.
+</tr>
+<tr><th>qty_reserved</th>
+<td>
+	<pre><code>{ "qty_reserved" : 1 }</code></pre>
+	The "Reserved" quantity.
+</tr>
+<tr><th>qty_picked</th>
+<td>
+	<pre><code>{ "qty_picked" : 1 }</code></pre>
+	The "Picked" quantity.
+</tr>
+</table>
