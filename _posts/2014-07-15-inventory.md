@@ -18,7 +18,7 @@ order: 10
 
 ----
 
-RSF tracks inventory using the following statuses:
+Red Stag Fulfillment tracks each merchant's inventory at all times using the following statuses:
 
  * **Expected** - Listed on open ASNs, RMAs and Other Deliveries that have not yet been received.
  * **Processed** - Counted on an ASN, RMA or Other Delivery but not yet put-away.
