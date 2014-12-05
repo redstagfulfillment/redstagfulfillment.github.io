@@ -88,8 +88,8 @@ Get product images by product SKU:
     "result" : [
         {
             "file" : "/b/l/blackberry8100_2.jpg",
-            "position" : "1",
-            "exclude" : "0",
+            "position" : 1,
+            "exclude" : 0,
             "url" : "http://magentohost/media/catalog/product/b/l/blackberry8100_2.jpg",
             "types" : [
                 "image", 
@@ -175,8 +175,8 @@ Object with "<a href="#image_data">Image Data</a>".
     "error" : null,
     "result" : {
         "file" : "/b/l/blackberry8100_2.jpg",
-        "position" : "1",
-        "exclude" : "0",
+        "position" : 1,
+        "exclude" : 0,
         "url" : "http://magentohost/media/catalog/product/b/l/blackberry8100_2.jpg",
         "types" : [
             "image", 
@@ -435,13 +435,13 @@ Remove product image
     <tr>
         <th>position</th>
         <td>
-            <pre><code>{ "position" : "3" }</code></pre>
+            <pre><code>{ "position" : 3 }</code></pre>
         </td>
     </tr>
     <tr>
         <th>exclude</th>
         <td>
-            <pre><code>{ "exclude" : "1" }</code></pre>
+            <pre><code>{ "exclude" : 1 }</code></pre>
             Allowed: "0" or "1".
         </td>
     </tr>
