@@ -18,6 +18,13 @@ order: 17
 
 ----
 
+#### Entity Properties
+
+ * [Image Type](#image_type_properties)
+ * [Image Mime Type](#image_mime_type)
+ 
+----
+
 <h1 id="product_media_list">
 product_media.list
 <code>(string $sku, null|string|number $store = 0)</code>
@@ -44,6 +51,10 @@ Retrieve list of product images
     </tr>
 </tbody>
 </table>
+
+#### Return Value
+
+An array of objects. Each object will contain "<a href="#image_type_properties">Image Type Properties</a>".
 
 ----
 
@@ -190,6 +201,65 @@ Remove product image
     <tr>
         <td>1</td>
         <td>string - Image file.</td>
+    </tr>
+</tbody>
+</table>
+
+----
+
+## Entity Properties
+
+<h3 id="image_type_properties">
+    Image Type Properties
+</h3>
+
+<table class="table-striped">
+<tbody>
+    <tr>
+        <th>code</th>
+        <td>
+            <pre><code>{ "code" : "image" }</code></pre>
+            A unique identifier for an image type. Allowed: "image", "thumbnail".
+        </td>
+    </tr>
+    <tr>
+        <th>scope</th>
+        <td>
+            <pre><code>{ "scode" : "global" }</code></pre>
+            The "Scope" property. Allowed: "global", "website", "store".
+        </td>
+    </tr>
+</tbody>
+</table>
+
+----
+
+<h3 id="image_mime_type">
+    Image Mime Type
+</h3>
+
+<table class="table-striped">
+<tbody>
+    <tr>
+        <th>image/jpeg</th>
+        <td>
+            <pre><code>{ "mime" : "image/jpeg" }</code></pre>
+            JPEG
+        </td>
+    </tr>
+    <tr>
+        <th>image/gif</th>
+        <td>
+            <pre><code>{ "mime" : "image/gif" }</code></pre>
+            GIF
+        </td>
+    </tr>
+    <tr>
+        <th>image/png</th>
+        <td>
+            <pre><code>{ "mime" : "image/png" }</code></pre>
+            PNG
+        </td>
     </tr>
 </tbody>
 </table>
