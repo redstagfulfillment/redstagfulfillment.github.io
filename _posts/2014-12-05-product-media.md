@@ -388,6 +388,64 @@ Update product image
 </tbody>
 </table>
 
+#### Return Value
+
+True, if the image has been uploaded
+
+#### Example Request
+
+```javascript
+{
+    "jsonrpc" : 2.0,
+    "id" : 1234,
+    "method" : "call",
+    "params" : [
+        "be1c13ed4e03f0ed7f1e4053dfff9658",
+        "product_media.update",
+        [
+            {
+                "sku" : { "eq" : "product2" },
+                {
+                    "file" : {
+                        "content" : "base64 encoded content",
+                        "type": "image/jpeg"
+                    },
+                    "position" : 100,
+                    "types" : [
+                        "thumbnail"
+                    ],
+                    "exclude" : 1
+                }
+            }
+        ]
+    ]
+}
+```
+
+#### Example Response
+
+```javascript
+{
+    "jsonrpc" : 2.0,
+    "id" : 1234,
+    "error" : null,
+    "result" : 1
+}
+```
+
+----
+
+#### Error Codes
+
+| code | message |
+| ---- | ------- |
+| 100 | Requested store view not found. |
+| 101 | Product not exists. |
+| 102 | Invalid data given. Details in error message. |
+| 103 | Requested image not exists in product images' gallery. |
+| 104 | Image creation failed. Details in error message. |
+| 107 | Requested product doesn't support images |
+
 ----
 
 <h1 id="product_media_remove">
