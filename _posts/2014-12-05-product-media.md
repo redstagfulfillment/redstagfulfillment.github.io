@@ -22,6 +22,7 @@ order: 17
 
  * [Image Type](#image_type_properties)
  * [Image Mime Type](#image_mime_type)
+ * [Image Data](#image_data)
  
 ----
 
@@ -259,6 +260,52 @@ Remove product image
         <td>
             <pre><code>{ "mime" : "image/png" }</code></pre>
             PNG
+        </td>
+    </tr>
+</tbody>
+</table>
+
+----
+
+<h3 id="image_data">
+    Image Data
+</h3>
+
+<table class="table-striped">
+<tbody>
+    <tr>
+        <th>file</th>
+        <td>
+            Creating a new file:
+            <pre><code>{ "file" : { "content" : "base64 encoded content", "mime" : "image/jpeg" }}</code></pre>
+            Retriving existing file:
+            <pre><code>{ "file" : "/b/l/blackberry8100_2.jpg" }</code></pre>
+        </td>
+    </tr>
+    <tr>
+        <th>position</th>
+        <td>
+            <pre><code>{ "position" : "3" }</code></pre>
+        </td>
+    </tr>
+    <tr>
+        <th>exclude</th>
+        <td>
+            <pre><code>{ "exclude" : "1" }</code></pre>
+            Allowed: "0" or "1".
+        </td>
+    </tr>
+    <tr>
+        <th>url</th>
+        <td>
+            <pre><code>{ "url" : "http://magentohost/media/catalog/product/b/l/blackberry8100_2.jpg" }</code></pre>
+        </td>
+    </tr>
+    <tr>
+        <th>types</th>
+        <td>
+            <pre><code>{ "types" : ["image", "thumbnail"] }</code></pre>
+            Allowed: "image", "thumbnail".
         </td>
     </tr>
 </tbody>
