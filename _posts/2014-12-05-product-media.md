@@ -232,11 +232,9 @@ An array of objects. Each object will contain "<a href="#image_type_properties">
     "params" : [
         "be1c13ed4e03f0ed7f1e4053dfff9658",
         "product_media.types",
-        [
-            {
-                "setId" : { "eq" : "4" }
-            }
-        ]
+        {
+            "setId" : { "eq" : 4 }
+        }
     ]
 }
 ```
@@ -293,6 +291,65 @@ Upload new product image
     </tr>
 </tbody>
 </table>
+
+#### Return Value
+
+Image file name (e.g., "/i/m/image.png")
+
+#### Example Request
+
+```javascript
+{
+    "jsonrpc" : 2.0,
+    "id" : 1234,
+    "method" : "call",
+    "params" : [
+        "be1c13ed4e03f0ed7f1e4053dfff9658",
+        "product_media.create",
+        [
+            {
+                "sku" : { "eq" : "product2" },
+                {
+                    "file" : {
+                        "content" : "base64 encoded content",
+                        "type": "image/jpeg"
+                    },
+                    "position" : 100,
+                    "types" : [
+                        "thumbnail"
+                    ],
+                    "exclude" : 0
+                }
+            }
+        ]
+    ]
+}
+```
+
+#### Example Response
+
+```javascript
+{
+    "jsonrpc" : 2.0,
+    "id" : 1234,
+    "error" : null,
+    "result" : [
+        "/i/m/image.png"
+    ]
+}}
+```
+
+----
+
+#### Error Codes
+
+| code | message |
+| ---- | ------- |
+| 100 | Requested store view not found. |
+| 101 | Product not exists. |
+| 102 | Invalid data given. Details in error message. |
+| 104 | Image creation failed. Details in error message. |
+| 107 | Requested product doesn't support images |
 
 ----
 
