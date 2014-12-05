@@ -57,6 +57,58 @@ Retrieve list of product images
 
 An array of objects. Each object will contain "<a href="#image_type_properties">Image Type Properties</a>".
 
+#### Example Request
+
+Get product images by product SKU:
+
+```javascript
+{
+    "jsonrpc" : 2.0,
+    "id" : 1234,
+    "method" : "call",
+    "params" : [
+        "be1c13ed4e03f0ed7f1e4053dfff9658",
+        "product_media.list",
+        [
+            {
+                "sku" : { "eq" : "product2" }
+            }
+        ]
+    ]
+}
+```
+
+#### Example Response
+
+```javascript
+{
+    "jsonrpc" : 2.0,
+    "id" : 1234,
+    "error" : null,
+    "result" : [
+        {
+            "file" : "/b/l/blackberry8100_2.jpg",
+            "position" : "1",
+            "exclude" : "0",
+            "url" : "http://magentopath/blackberry8100_2.jpg",
+            "types" : [
+                "image", 
+                "thumbnail"
+            ]
+        }
+    ]
+}
+```
+
+----
+
+#### Error Codes
+
+| code | message |
+| ---- | ------- |
+| 100 | Requested store view not found. |
+| 101 | Product not exists. |
+
 ----
 
 <h1 id="product_media_info">
