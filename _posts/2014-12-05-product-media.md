@@ -90,7 +90,7 @@ Get product images by product SKU:
             "file" : "/b/l/blackberry8100_2.jpg",
             "position" : "1",
             "exclude" : "0",
-            "url" : "http://magentopath/blackberry8100_2.jpg",
+            "url" : "http://magentohost/media/catalog/product/b/l/blackberry8100_2.jpg",
             "types" : [
                 "image", 
                 "thumbnail"
@@ -116,7 +116,7 @@ product_media.info
 <code>(string $sku, string $file, null|string|number $store = 0)</code>
 </h1>
 
-Retrieve product images
+Retrieve information about the specified product image.
 
 #### Parameters
 
@@ -141,6 +141,61 @@ Retrieve product images
     </tr>
 </tbody>
 </table>
+
+#### Return Value
+
+Object with "<a href="#image_type_properties">Image Type Properties</a>".
+
+#### Example Request
+
+```javascript
+{
+    "jsonrpc" : 2.0,
+    "id" : 1234,
+    "method" : "call",
+    "params" : [
+        "be1c13ed4e03f0ed7f1e4053dfff9658",
+        "product_media.info",
+        [
+            {
+                "sku" : { "eq" : "product2" },
+                "file" : { "eq" : "/b/l/blackberry8100_2.jpg" }
+            }
+        ]
+    ]
+}
+```
+
+#### Example Response
+
+```javascript
+{
+    "jsonrpc" : 2.0,
+    "id" : 1234,
+    "error" : null,
+    "result" : {
+        "file" : "/b/l/blackberry8100_2.jpg",
+        "position" : "1",
+        "exclude" : "0",
+        "url" : "http://magentohost/media/catalog/product/b/l/blackberry8100_2.jpg",
+        "types" : [
+            "image", 
+            "thumbnail"
+        ]
+    }
+}
+
+----
+
+#### Error Codes
+
+| code | message |
+| ---- | ------- |
+| 100 | Requested store view not found. |
+| 101 | Product not exists. |
+| 103 | Requested image not exists in product images' gallery. |
+| 107 | Requested product doesn't support images |
+
 
 ----
 
