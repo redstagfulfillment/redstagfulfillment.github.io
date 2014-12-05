@@ -471,6 +471,52 @@ Remove product image
 </tbody>
 </table>
 
+#### Return Value
+
+True, if the image has been removed
+
+#### Example Request
+
+```javascript
+{
+    "jsonrpc" : 2.0,
+    "id" : 1234,
+    "method" : "call",
+    "params" : [
+        "be1c13ed4e03f0ed7f1e4053dfff9658",
+        "product_media.delete",
+        [
+            {
+                "sku" : { "eq" : "product2" },
+                "file" : { "eq" : "/b/l/blackberry8100_2.jpg" }
+            }
+        ]
+    ]
+}
+```
+
+#### Example Response
+
+```javascript
+{
+    "jsonrpc" : 2.0,
+    "id" : 1234,
+    "error" : null,
+    "result" : 1
+}
+```
+
+----
+
+#### Error Codes
+
+| code | message |
+| ---- | ------- |
+| 100 | Requested store view not found. |
+| 101 | Product not exists. |
+| 106 | Image not removed. Details in error message. |
+| 107 | Requested product doesn't support images |
+
 ----
 
 ## Entity Properties
