@@ -55,7 +55,7 @@ Retrieve list of product images
 
 #### Return Value
 
-An array of objects. Each object will contain "<a href="#image_type_properties">Image Type Properties</a>".
+An array of objects. Each object will contain "<a href="#image_data">Image Data</a>".
 
 #### Example Request
 
@@ -144,7 +144,7 @@ Retrieve information about the specified product image.
 
 #### Return Value
 
-Object with "<a href="#image_type_properties">Image Type Properties</a>".
+Object with "<a href="#image_data">Image Data</a>".
 
 #### Example Request
 
@@ -217,6 +217,49 @@ Retrieve product image types
     </tr>
 </tbody>
 </table>
+
+#### Return Value
+
+An array of objects. Each object will contain "<a href="#image_type_properties">Image Type Properties</a>".
+
+#### Example Request
+
+```javascript
+{
+    "jsonrpc" : 2.0,
+    "id" : 1234,
+    "method" : "call",
+    "params" : [
+        "be1c13ed4e03f0ed7f1e4053dfff9658",
+        "product_media.types",
+        [
+            {
+                "setId" : { "eq" : "4" }
+            }
+        ]
+    ]
+}
+```
+
+#### Example Response
+
+```javascript
+{
+    "jsonrpc" : 2.0,
+    "id" : 1234,
+    "error" : null,
+    "result" : [
+        {
+            "code" : "image",
+            "scope" : "store"
+        },
+        {
+            "code" : "thumbnail",
+            "scope" : "store"
+        }
+    ]
+}}
+```
 
 ----
 
