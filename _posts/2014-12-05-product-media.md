@@ -41,14 +41,14 @@ product_media.types
 
 <h1 id="product_media_create">
 product_media.create
-<code>(string $sku, array|object $data, null|string|number $store = 0)</code>
+<code>(string $sku, object $data, null|string|number $store = 0)</code>
 </h1>
 
 ----
 
 <h1 id="product_media_update">
 product_media.update
-<code>(string $sku, string $file, array|object $data, null|string|number $store = 0)</code>
+<code>(string $sku, string $file, object $data, null|string|number $store = 0)</code>
 </h1>
 
 ----
