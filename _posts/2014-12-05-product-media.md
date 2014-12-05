@@ -184,6 +184,7 @@ Object with "<a href="#image_type_properties">Image Type Properties</a>".
         ]
     }
 }
+```
 
 ----
 
@@ -193,9 +194,8 @@ Object with "<a href="#image_type_properties">Image Type Properties</a>".
 | ---- | ------- |
 | 100 | Requested store view not found. |
 | 101 | Product not exists. |
-| 103 | Requested image not exists in product images gallery. |
-| 107 | Requested product does not support images |
-
+| 103 | Requested image not exists in product images' gallery. |
+| 107 | Requested product doesn't support images |
 
 ----
 
