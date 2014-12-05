@@ -336,7 +336,7 @@ Image file name (e.g., "/i/m/image.png")
     "result" : [
         "/i/m/image.png"
     ]
-}}
+}
 ```
 
 ----
