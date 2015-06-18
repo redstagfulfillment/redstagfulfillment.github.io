@@ -57,9 +57,34 @@ filter {
 }
 ```
 
-### Example
+#### Example
 
 unique_id,order_ref,shipping_method,custom_greeting,note,signature_required,overbox,requested_ship_date,delayed_ship_date,firstname,lastname,company,street1,street2,city,region,postcode,country,phone,sku,qty
 ,123456,ups_01,,,,,,,Gates,Bill,Microsoft,11 Times Square,,New York,NY,10036,US,212.245.2100,product1,5
 ,123456,,,,,,,,,,,,,,,,,,product2,1
 ,123456,,,,,,,,,,,,,,,,,,product3,2
+
+<h1 id="order_standard_json">
+Order - Standard JSON
+</h1>
+
+Import orders in JSON format.
+
+#### Filter
+
+```javascript
+filter {
+  json {
+    source => "message"
+  }
+  ruby {
+    code => 'event["raw_data"] = event["message"]'
+  }
+}
+```
+
+#### Example
+
+{ "order_ref":"123456","shipping_method":"ups_01","firstname":"Gates","lastname":"Bill","company":"Microsoft","street1":"11 Times Square","city":"New York","region":"NY","postcode":"10036","country":"US","phone":"212.245.2100","items":{"product1":2,"product2":3,"product3":1} }
+{ "order_ref":"333333","shipping_method":"ups_01","firstname":"Gates","lastname":"Bill","company":"Microsoft","street1":"11 Times Square","city":"New York","region":"NY","postcode":"10036","country":"US","phone":"212.245.2100","items":{"product1":2,"product2":3,"product3":1} }
+{ "order_ref":"4444444","shipping_method":"ups_01","firstname":"Gates","lastname":"Bill","company":"Microsoft","street1":"11 Times Square","city":"New York","region":"NY","postcode":"10036","country":"US","phone":"212.245.2100","items":{"product1":2,"product2":3,"product3":1} }
