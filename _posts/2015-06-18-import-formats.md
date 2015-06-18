@@ -56,10 +56,7 @@ filter {
 
 ### Example
 
-```
 unique_id,order_ref,shipping_method,custom_greeting,note,signature_required,overbox,requested_ship_date,delayed_ship_date,firstname,lastname,company,street1,street2,city,region,postcode,country,phone,sku,qty
 ,123456,ups_01,,,,,,,Gates,Bill,Microsoft,11 Times Square,,New York,NY,10036,US,212.245.2100,product1,5
 ,123456,,,,,,,,,,,,,,,,,,product2,1
 ,123456,,,,,,,,,,,,,,,,,,product3,2
-```
-
