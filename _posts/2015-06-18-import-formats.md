@@ -88,3 +88,95 @@ filter {
 { "order_ref" : "123456", "shipping_method" : "ups_01", "firstname" : "Gates", "lastname" : "Bill", "company" : "Microsoft", "street1" : "11 Times Square", "city" : "New York", "region" : "NY", "postcode" : "10036", "country" : "US", "phone" : "212.245.2100", "items" : { "product1" : 2, "product2" : 3, "product3" : 1} }
 { "order_ref" : "987654", "shipping_method" : "ups_01", "firstname" : "Gates", "lastname" : "Bill", "company" : "Microsoft", "street1" : "11 Times Square", "city" : "New York", "region" : "NY", "postcode" : "10036", "country" : "US", "phone" : "212.245.2100", "items" : { "product1" : 2, "product2" : 3, "product3" : 1} }
 { "order_ref" : "102030", "shipping_method" : "ups_01", "firstname" : "Gates", "lastname" : "Bill", "company" : "Microsoft", "street1" : "11 Times Square", "city" : "New York", "region" : "NY", "postcode" : "10036", "country" : "US", "phone" : "212.245.2100", "items" : { "product1" : 2, "product2" : 3, "product3" : 1} }
+
+<h1 id="product_standard_csv">
+Product - Standard CSV
+</h1>
+
+Import products in CSV format.
+
+#### Filter
+
+```javascript
+filter {
+  if ([message] =~ /^(s|S)ku/) {
+    drop {}
+  }
+  csv {
+    columns => [
+      "sku", "name", "barcode", "goods_type", "weight", "length", "width", "height"
+    ]
+  }
+  ruby {
+    code => 'event["raw_data"] = event["message"].first'
+  }
+}
+```
+
+#### Example
+
+sku,name,barcode,goods_type,weight,length,width,height
+productsku,Product Name,productbarcode,NORMAL,"1.75","123","100","28"
+
+<h1 id="product_standard_json">
+Product - Standard JSON
+</h1>
+
+Import products in JSON format.
+
+#### Filter
+
+```javascript
+filter {
+  json {
+    source => "message"
+  }
+  ruby {
+    code => 'event["raw_data"] = event["message"]'
+  }
+}
+```
+
+<h1 id="order_standard_csv">
+Order - Standard CSV
+</h1>
+
+Import orders in CSV format.
+
+#### Filter
+
+```javascript
+filter {
+  if ([message] =~ /^(u|U)nique/) {
+    drop {}
+  }
+  csv {
+    columns => [
+      "unique_id", "order_ref", "shipping_method", "custom_greeting", "note", "signature_required", 
+      "overbox", "requested_ship_date", "delayed_ship_date", "firstname", "lastname", "company", 
+      "street1", "street2", "city", "region", "postcode", "country", "phone", "sku", "qty"
+    ]
+  }
+  push {
+    unique_field => "order_ref"
+    target => "order_items"
+    fields => [ "sku", "qty" ]
+  }
+  ruby {
+    code => '
+      event["items"] = Hash.new; 
+      event["order_items"].each { |value| event["items"]["#{value["sku"]}"] = "#{value["qty"]}" }
+    '
+    remove_field => [ "order_items" ]
+  }
+  ruby {
+    code => 'event["raw_data"] = event["message"].first'
+  }
+}
+```
+
+#### Example
+
+{ "order_ref" : "123456", "shipping_method" : "ups_01", "firstname" : "Gates", "lastname" : "Bill", "company" : "Microsoft", "street1" : "11 Times Square", "city" : "New York", "region" : "NY", "postcode" : "10036", "country" : "US", "phone" : "212.245.2100", "items" : { "product1" : 2, "product2" : 3, "product3" : 1} }
+{ "order_ref" : "987654", "shipping_method" : "ups_01", "firstname" : "Gates", "lastname" : "Bill", "company" : "Microsoft", "street1" : "11 Times Square", "city" : "New York", "region" : "NY", "postcode" : "10036", "country" : "US", "phone" : "212.245.2100", "items" : { "product1" : 2, "product2" : 3, "product3" : 1} }
+{ "order_ref" : "102030", "shipping_method" : "ups_01", "firstname" : "Gates", "lastname" : "Bill", "company" : "Microsoft", "street1" : "11 Times Square", "city" : "New York", "region" : "NY", "postcode" : "10036", "country" : "US", "phone" : "212.245.2100", "items" : { "product1" : 2, "product2" : 3, "product3" : 1} }
