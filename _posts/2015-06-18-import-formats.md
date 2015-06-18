@@ -106,7 +106,7 @@ filter {
 }
 ```
 
-<strong>Important!</strong> JSON for each order must be a single line. Multi-line JSON is not allowed.
+<strong><span style="color:red">Important!</span></strong> JSON for each order must be a single line. Multi-line JSON is not allowed.
 
 <h2 id="product_standard_csv">
 Product - Standard CSV
@@ -173,13 +173,13 @@ filter {
 }
 ```
 
-<strong>Important!</strong> JSON for each product must be a single line. Multi-line JSON is not allowed.
+<strong><span style="color:red">Important!</span></strong> JSON for each product must be a single line. Multi-line JSON is not allowed.
 
 <h2 id="delivery_standard_csv">
 Delivery - Standard CSV
 </h2>
 
-Import deliveries in CSV format.
+Import deliveries in CSV format. "id" field is optional (not saved) and can be any unique value. The "id" field is only used to combine multi-line delivery items for a single delivery.
 
 #### Filter
 
@@ -255,4 +255,4 @@ filter {
 }
 ```
 
-<strong>Important!</strong> JSON for each delivery must be a single line. Multi-line JSON is not allowed.
+<strong><span style="color:red">Important!</span></strong> JSON for each delivery must be a single line. Multi-line JSON is not allowed.
