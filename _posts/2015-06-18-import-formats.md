@@ -15,7 +15,7 @@ order: 180
 
 ---
 
-Red Stag Fulfillment supports importing <a href="/ref/order.html">orders</a>, <a href="/ref/product.html">products</a> and <a href="/ref/delivery.html">deliveries</a>.
+Red Stag Fulfillment supports importing <a href="/ref/order.html">orders</a>, <a href="/ref/product.html">products</a> and <a href="/ref/delivery.html">deliveries</a>. <a href="http://logstash.net">Logstash</a> configuration is used to filter import data. Standard CSV and JSON filters use the same values as API. Read <a href="#custom_filter">here</a> how to create custom import filters.
 
 ---
 <h2 id="order_standard_csv">
@@ -256,3 +256,7 @@ filter {
 ```
 
 <strong><span style="color:red">Important!</span></strong> JSON for each delivery must be a single line. Multi-line JSON is not allowed.
+
+<h2 id="custom_filter">
+Create customer import filter
+</h2>
