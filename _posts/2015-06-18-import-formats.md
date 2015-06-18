@@ -106,6 +106,8 @@ filter {
 }
 ```
 
+<strong>Important!</strong> JSON for each order must be a single line. Multi-line JSON is not allowed.
+
 <h2 id="product_standard_csv">
 Product - Standard CSV
 </h2>
@@ -170,6 +172,8 @@ filter {
   "height" : "28"
 }
 ```
+
+<strong>Important!</strong> JSON for each product must be a single line. Multi-line JSON is not allowed.
 
 <h2 id="delivery_standard_csv">
 Delivery - Standard CSV
@@ -250,3 +254,5 @@ filter {
   ] 
 }
 ```
+
+<strong>Important!</strong> JSON for each delivery must be a single line. Multi-line JSON is not allowed.
