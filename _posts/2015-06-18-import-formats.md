@@ -85,6 +85,6 @@ filter {
 
 #### Example
 
-{ "order_ref":"123456","shipping_method":"ups_01","firstname":"Gates","lastname":"Bill","company":"Microsoft","street1":"11 Times Square","city":"New York","region":"NY","postcode":"10036","country":"US","phone":"212.245.2100","items":{"product1":2,"product2":3,"product3":1} }
-{ "order_ref":"333333","shipping_method":"ups_01","firstname":"Gates","lastname":"Bill","company":"Microsoft","street1":"11 Times Square","city":"New York","region":"NY","postcode":"10036","country":"US","phone":"212.245.2100","items":{"product1":2,"product2":3,"product3":1} }
-{ "order_ref":"4444444","shipping_method":"ups_01","firstname":"Gates","lastname":"Bill","company":"Microsoft","street1":"11 Times Square","city":"New York","region":"NY","postcode":"10036","country":"US","phone":"212.245.2100","items":{"product1":2,"product2":3,"product3":1} }
+{ "order_ref" : "123456", "shipping_method" : "ups_01", "firstname" : "Gates", "lastname" : "Bill", "company" : "Microsoft", "street1" : "11 Times Square", "city" : "New York", "region" : "NY", "postcode" : "10036", "country" : "US", "phone" : "212.245.2100", "items" : { "product1" : 2, "product2" : 3, "product3" : 1} }
+{ "order_ref" : "987654", "shipping_method" : "ups_01", "firstname" : "Gates", "lastname" : "Bill", "company" : "Microsoft", "street1" : "11 Times Square", "city" : "New York", "region" : "NY", "postcode" : "10036", "country" : "US", "phone" : "212.245.2100", "items" : { "product1" : 2, "product2" : 3, "product3" : 1} }
+{ "order_ref" : "102030", "shipping_method" : "ups_01", "firstname" : "Gates", "lastname" : "Bill", "company" : "Microsoft", "street1" : "11 Times Square", "city" : "New York", "region" : "NY", "postcode" : "10036", "country" : "US", "phone" : "212.245.2100", "items" : { "product1" : 2, "product2" : 3, "product3" : 1} }
