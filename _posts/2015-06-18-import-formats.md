@@ -34,7 +34,8 @@ filter {
   }
   csv {
     columns => [
-      "unique_id", "order_ref", "shipping_method", "custom_greeting", "note", "signature_required", "overbox",             "requested_ship_date", "delayed_ship_date", "firstname", "lastname", "company", "street1", "street2", 
+      "unique_id", "order_ref", "shipping_method", "custom_greeting", "note", "signature_required", "overbox",
+      "requested_ship_date", "delayed_ship_date", "firstname", "lastname", "company", "street1", "street2",
       "city", "region", "postcode", "country", "phone", "sku", "qty"
     ]
   }
@@ -44,8 +45,10 @@ filter {
     fields => [ "sku", "qty" ]
   }
   ruby {
-    code => 'event["items"] = Hash.new; 
-      event["order_items"].each { |value| event["items"]["#{value["sku"]}"] = "#{value["qty"]}" }'
+    code => '
+      event["items"] = Hash.new; 
+      event["order_items"].each { |value| event["items"]["#{value["sku"]}"] = "#{value["qty"]}" }
+    '
     remove_field => [ "order_items" ]
   }
   ruby {
