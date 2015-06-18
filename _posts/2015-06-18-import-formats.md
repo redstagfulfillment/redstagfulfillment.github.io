@@ -257,6 +257,113 @@ filter {
 
 <strong><span style="color:red">Important!</span></strong> JSON for each delivery must be a single line. Multi-line JSON is not allowed.
 
+---
+
 <h2 id="custom_filter">
 Create customer import filter
 </h2>
+
+Logstash uses input {...}, filter {...} and output {...} configuration. "input" and "output" configuration is already defined and only "filter" part of the configuration can be changed. "input" uses stdin and adds "line_number" to each line of the import file. "output" is different for each import type. Custom filter should get data after "input", make required modification and convert it to the "output" format corresponding to the import type. Standard CSV and JSON configuration can be taken as a basis.
+
+#### input
+
+```javascript
+input {
+  stdin { type => "stdin-type" }
+}
+
+filter {
+  ruby {
+    code => '
+      if !$LINE
+        $LINE = 0;
+      end;
+      $LINE += 1; event["line_number"] = $LINE;'
+  }
+}
+```
+
+#### output for Order
+
+```javascript
+filter {
+  ruby {
+    code => 'event["parsed_data"] = {
+      "api_method" => "order.create",
+      "args" => {
+        "items" => event["items"],
+        "address" => {
+          "firstname"=> event["firstname"],
+          "lastname" => event["lastname"],
+          "company"  => event["company"],
+          "street1"  => event["street1"],
+          "city"     => event["city"],
+          "region"   => event["region"],
+          "postcode" => event["postcode"],
+          "country"  => event["country"],
+          "phone"    => event["phone"]
+        },
+        "info" => {
+          "unique_id"           => event["unique_id"],
+          "order_ref"           => event["order_ref"],
+          "shipping_method"     => event["shipping_method"],
+          "custom_greeting"     => event["custom_greeting"],
+          "note"                => event["note"],
+          "signature_required"  => event["signature_required"],
+          "overbox"             => event["overbox"],
+          "requested_ship_date" => event["requested_ship_date"],
+          "delayed_ship_date"   => event["delayed_ship_date"]
+        }
+      }
+    }'
+  }
+}
+```
+
+#### output for Product
+
+```javascript
+filter {
+  ruby {
+    code => 'event["parsed_data"] = {
+      "api_method" => "product.create",
+      "args" => {
+        "sku" => event["sku"],
+        "product_data" => {
+          "name"         => event["name"],
+          "barcode"      => event["barcode"],
+          "goods_type"   => event["goods_type"],
+          "weight"       => event["weight"],
+          "length"       => event["length"],
+          "width"        => event["width"],
+          "height"       => event["height"]
+        }
+      }
+    }'
+  }
+}
+```
+
+#### output for Delivery
+
+```javascript
+filter {
+  ruby {
+    code => 'event["parsed_data"] = {
+      "api_method" => "delivery.create",
+      "args" => {
+        "delivery_type" => event["delivery_type"],
+        "data" => {
+          "sender_name"       => event["sender_name"],
+          "carrier_name"      => event["carrier_name"],
+          "expected_delivery" => event["expected_delivery"],
+          "delivery_type"     => event["delivery_type"],
+          "merchant_ref"      => event["merchant_ref"],
+          "sender_ref"        => event["sender_ref"]
+        },
+        "items" => event["items"]
+      }
+    }'
+  }
+}
+```
