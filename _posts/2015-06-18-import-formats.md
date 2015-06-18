@@ -263,7 +263,7 @@ filter {
 Create customer import filter
 </h2>
 
-Logstash uses input {...}, filter {...} and output {...} configuration. "input" and "output" configuration is already defined and only "filter" part of the configuration can be changed. "input" uses stdin and adds "line_number" to each line of the import file. "output" is different for each import type. Custom filter should get data after "input", make required modification and convert it to the "output" format corresponding to the import type. Standard CSV and JSON configuration can be taken as a basis.
+Logstash uses input {...}, filter {...} and output {...} configuration. "input" and "output" configuration is already defined and only "filter" part of the configuration can be changed. "input" uses stdin and adds "line_number" to each line of the import file. "output" is different for each import type. Custom filter should get data after "input", make required modifications and prepare the data for the "output" format corresponding to the import type. Standard CSV and JSON configuration can be taken as a basis.
 
 #### input
 
