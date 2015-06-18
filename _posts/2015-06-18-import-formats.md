@@ -15,7 +15,7 @@ order: 180
 
 ---
 
-Red Stag Fulfillment supports importing <a href="/ref/order.html">orders</a>, <a href="/ref/product.html">products</a> and <a href="/ref/delivery.html">deliveries</a>. <a href="http://logstash.net">Logstash</a> configuration is used to filter import data. Standard CSV and JSON filters use the same values as API. Read <a href="#custom_filter">here</a> how to create custom import filters.
+Red Stag Fulfillment supports importing <a href="/ref/order.html">orders</a>, <a href="/ref/product.html">products</a> and <a href="/ref/delivery.html">deliveries</a>. <a href="http://logstash.net">Logstash</a> configuration is used to filter import data. Standard CSV and JSON filters use the same values as API. Read <a href="#custom_filter">here</a> how to create custom import format.
 
 ---
 <h2 id="order_standard_csv">
@@ -260,10 +260,10 @@ filter {
 ---
 
 <h2 id="custom_filter">
-Create custom import filter
+Create custom import format
 </h2>
 
-Logstash uses input {...}, filter {...} and output {...} configuration. "input" and "output" configuration is already defined and only "filter" part of the configuration can be changed. "input" uses stdin and adds "line_number" to each line of the import file. "output" is different for each import type. Custom filter should get data after "input", make required modifications and prepare the data for the "output" format corresponding to the import type. Standard CSV and JSON configuration can be taken as a basis.
+Logstash uses input {...}, filter {...} and output {...} configuration. "input" and "output" configuration is already defined and only "filter" part of the configuration can be changed. "input" uses stdin and adds "line_number" to each line of the import file. "output" is different for each import type. Custom import format should get data after "input", make required modifications and prepare the data for the "output" format corresponding to the import type. Standard CSV and JSON configuration can be taken as a basis.
 
 #### input
 
