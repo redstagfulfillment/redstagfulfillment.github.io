@@ -18,9 +18,9 @@ order: 180
 Red Stag Fulfillment supports importing <a href="/ref/order.html">orders</a>, <a href="/ref/product.html">products</a> and <a href="/ref/delivery.html">deliveries</a>.
 
 ---
-<h1 id="order_standard_csv">
+<h3 id="order_standard_csv">
 Order - Standard CSV
-</h1>
+</h3>
 
 Import orders in CSV format.
 
@@ -63,9 +63,9 @@ unique_id,order_ref,shipping_method,custom_greeting,note,signature_required,over
 ,123456,,,,,,,,,,,,,,,,,,product2,1
 ,123456,,,,,,,,,,,,,,,,,,product3,2
 
-<h1 id="order_standard_json">
+<h3 id="order_standard_json">
 Order - Standard JSON
-</h1>
+</h3>
 
 Import orders in JSON format.
 
@@ -88,9 +88,9 @@ filter {
 { "order_ref" : "987654", "shipping_method" : "ups_01", "firstname" : "Gates", "lastname" : "Bill", "company" : "Microsoft", "street1" : "11 Times Square", "city" : "New York", "region" : "NY", "postcode" : "10036", "country" : "US", "phone" : "212.245.2100", "items" : { "product1" : 2, "product2" : 3, "product3" : 1} }
 { "order_ref" : "102030", "shipping_method" : "ups_01", "firstname" : "Gates", "lastname" : "Bill", "company" : "Microsoft", "street1" : "11 Times Square", "city" : "New York", "region" : "NY", "postcode" : "10036", "country" : "US", "phone" : "212.245.2100", "items" : { "product1" : 2, "product2" : 3, "product3" : 1} }
 
-<h1 id="product_standard_csv">
+<h3 id="product_standard_csv">
 Product - Standard CSV
-</h1>
+</h3>
 
 Import products in CSV format.
 
@@ -117,9 +117,9 @@ filter {
 sku,name,barcode,goods_type,weight,length,width,height
 productsku,Product Name,productbarcode,NORMAL,"1.75","123","100","28"
 
-<h1 id="product_standard_json">
+<h3 id="product_standard_json">
 Product - Standard JSON
-</h1>
+</h3>
 
 Import products in JSON format.
 
@@ -140,9 +140,9 @@ filter {
 
 { "sku" : "productsku", "name" : "Product Name", "barcode" : "productbarcode", "goods_type" : "NORMAL", "weight" : "1.75", "length" : "123", "width" : "100", "height" : "28"}
 
-<h1 id="delivery_standard_csv">
+<h3 id="delivery_standard_csv">
 Delivery - Standard CSV
-</h1>
+</h3>
 
 Import deliveries in CSV format.
 
@@ -176,9 +176,9 @@ id,delivery_type,sender_name,carrier_name,expected_delivery,merchant_ref,sender_
 aaa,asn,Bill Gates,FedEx,"2014-07-31",12345,333,product1,5
 aaa,,,,,,,product2,1
 
-<h1 id="delivery_standard_json">
+<h3 id="delivery_standard_json">
 Delivery - Standard JSON
-</h1>
+</h3>
 
 Import deliveries in JSON format.
 
