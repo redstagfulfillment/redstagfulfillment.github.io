@@ -59,7 +59,7 @@ filter {
 #### Example
 
 ```
-,123456,ups_01,,,,,,,Gates,Bill,Microsoft,11 Times Square,,New York,NY,10036,US,212.245.2100,product1,5
+,123456,ups_01,,,,,,,Bill,Gates,Microsoft,11 Times Square,,New York,NY,10036,US,212.245.2100,product1,5
 ,123456,,,,,,,,,,,,,,,,,,product2,1
 ,123456,,,,,,,,,,,,,,,,,,product3,2
 ```
@@ -89,8 +89,8 @@ filter {
 { 
   "order_ref" : "123456", 
   "shipping_method" : "ups_01", 
-  "firstname" : "Gates", 
-  "lastname" : "Bill", 
+  "firstname" : "Bill",
+  "lastname" : "Gates",
   "company" : "Microsoft", 
   "street1" : "11 Times Square", 
   "city" : "New York", 
