@@ -102,21 +102,23 @@ Get all inventory:
     "result" : [
         {
             "sku" : "BlueWidget-1",
-            "qty_expected"  : 0,
-            "qty_processed" : 0,
-            "qty_putaway"   : 50,
-            "qty_available" : 22,
-            "qty_reserved"  : 16,
-            "qty_picked"    : 1
+            "qty_expected"    : 0,
+            "qty_processed"   : 0,
+            "qty_putaway"     : 50,
+            "qty_available"   : 22,
+            "qty_reserved"    : 16,
+            "qty_picked"      : 1,
+            "qty_backordered" : 0
         },
         {
             "sku" : "BlueWidget-5",
-            "qty_expected"  : 40,
-            "qty_processed" : 0,
-            "qty_putaway"   : 0,
-            "qty_available" : 3,
-            "qty_reserved"  : 2,
-            "qty_picked"    : 0
+            "qty_expected"    : 40,
+            "qty_processed"   : 0,
+            "qty_putaway"     : 0,
+            "qty_available"   : 0,
+            "qty_reserved"    : 2,
+            "qty_picked"      : 0,
+            "qty_backordered" : 5
         }
     ]
 }
