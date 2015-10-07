@@ -27,6 +27,7 @@ Red Stag Fulfillment tracks each merchant's inventory at all times using the fol
  * **Available** - Available for new orders.
  * **Reserved** - Reserved by existing orders and on the shelf waiting to be picked.
  * **Picked** - Picked from the shelves but not yet shipped.
+ * **Backordered** - Reserved by existing orders but not in stock. Will be automatically converted to Reserved when stock is added. Backordered quantities are not reflected in the Available amount as a negative number so should be subtracted from Available.
 
 Additionally, products have two flags that can be set which will affect whether or not they are retrieved in an inventory request.
 
@@ -139,30 +140,35 @@ Get all inventory:
 <td>
 	<pre><code>{ "qty_expected" : 1 }</code></pre>
 	The "Expected" quantity.
-</tr>
+</td></tr>
 <tr><th>qty_processed</th>
 <td>
 	<pre><code>{ "qty_processed" : 1 }</code></pre>
 	The "Processed" quantity.
-</tr>
+</td></tr>
 <tr><th>qty_putaway</th>
 <td>
 	<pre><code>{ "qty_putaway" : 1 }</code></pre>
 	The "Put-Away" quantity.
-</tr>
+</td></tr>
 <tr><th>qty_available</th>
 <td>
 	<pre><code>{ "qty_available" : 1 }</code></pre>
 	The "Available" quantity.
-</tr>
+</td></tr>
 <tr><th>qty_reserved</th>
 <td>
 	<pre><code>{ "qty_reserved" : 1 }</code></pre>
 	The "Reserved" quantity.
-</tr>
+</td></tr>
 <tr><th>qty_picked</th>
 <td>
 	<pre><code>{ "qty_picked" : 1 }</code></pre>
 	The "Picked" quantity.
-</tr>
+</td></tr>
+<tr><th>qty_backordered</th>
+<td>
+	<pre><code>{ "qty_backordered" : 1 }</code></pre>
+	The "Backordered" quantity.
+</td></tr>
 </table>
