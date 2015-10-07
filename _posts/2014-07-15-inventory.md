@@ -24,10 +24,10 @@ Red Stag Fulfillment tracks each merchant's inventory at all times using the fol
  * **Processed** - Counted on an ASN, RMA or Other Delivery but not yet put-away.
  * **Put-Away** - Has been received on an ASN, RMA or Other Delivery that has not yet been committed to the inventory.
    If you have auto-commit enabled this should always be 0.
- * **Available** - Available for new orders.
+ * **Available** - Available for new orders. Backordered amounts are not reflected as a negative Available amount but are tracked separately as "Backordered".
  * **Reserved** - Reserved by existing orders and on the shelf waiting to be picked.
  * **Picked** - Picked from the shelves but not yet shipped.
- * **Backordered** - Reserved by existing orders but not in stock. Will be automatically converted to Reserved when stock is added. Backordered quantities are not reflected in the Available amount as a negative number so should be subtracted from Available.
+ * **Backordered** - Reserved by existing orders but not in stock. Will be automatically converted to Reserved when stock is added. Backordered quantities are not reflected in the Available amount as a negative number.
 
 Additionally, products have two flags that can be set which will affect whether or not they are retrieved in an inventory request.
 
