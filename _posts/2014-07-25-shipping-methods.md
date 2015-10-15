@@ -43,12 +43,6 @@ The following shipping methods are supported by the API where a "shipping_method
   </td>	
 </tr>
 <tr>
-  <th>fedex_FEDEX_FIRST_FREIGHT</th>
-  <td>
-  	Federal Express - First Freight
-  </td>	
-</tr>
-<tr>
   <th>fedex_INTERNATIONAL_PRIORITY</th>
   <td>
   	Federal Express - International Priority
