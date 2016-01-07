@@ -124,7 +124,7 @@ filter {
   csv {
     columns => [
       "sku", "name", "barcode", "goods_type", "weight", "length", "width", "height", "country_of_manufacture", "hts_base_code", "hts_country_code",
-      "requires_packaging", "confirmation_per_item", "special_box", "special_infill", "special_tape", "special_other", "unit_qty", "additional_regulatory_info"
+      "requires_packaging", "confirmation_per_item", "special_box", "special_infill", "special_tape", "special_other", "unit_qty", "additional_regulatory_info", "meets_hazmat_specs"
     ]
   }
   ruby {
@@ -137,7 +137,7 @@ filter {
 
 ```
 sku,name,barcode,goods_type,weight,length,width,height,country_of_manufacture,hts_base_code,hts_country_code,requires_packaging,confirmation_per_item,special_box,special_infill,special_tape,special_other,unit_qty
-"productsku","Product Name","productbarcode","NORMAL","1.75","123","100","28","DK","1234.56","BH:1000|ZW:1001",1,0,"specialboxsku","specialinfillsku","specialtapesku","specialothersku1|specialothersku2",5,"EX1995120111C"
+"productsku","Product Name","productbarcode","NORMAL","1.75","123","100","28","DK","1234.56","BH:1000|ZW:1001",1,0,"specialboxsku","specialinfillsku","specialtapesku","specialothersku1|specialothersku2",5,"EX1995120111C",1
 ```
 
 <h2 id="product_standard_json">
@@ -180,7 +180,8 @@ filter {
   "special_tape" : "specialtapesku",
   "special_other" : "specialothersku1|specialothersku2"
   "unit_qty" : 5,
-  "additional_regulatory_info" : "EX1995120111C"
+  "additional_regulatory_info" : "EX1995120111C",
+  "meets_hazmat_specs" : 1
 }  
 ```
 
