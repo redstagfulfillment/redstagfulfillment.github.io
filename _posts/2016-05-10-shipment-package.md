@@ -19,6 +19,8 @@ order: 27
 
 ----
 
+There may be multiple packages for one shipment. Each package may have multiple tracking numbers, most packages will have only one tracking number.
+
 ----
 
 <h1 id="package_search">
@@ -75,7 +77,7 @@ Retrieve list of packages by filters. Package data can be customized by specifyi
     <tr>
         <th>shipment_id</th>
         <td>
-            <pre><code>{ "shipment" : "100000005" }</code></pre>
+            <pre><code>{ "shipment_id" : "100000005" }</code></pre>
             The "Shipment ID" property. This number may appear on the packing slip as the "Packing Slip #".
         </td>
     </tr>
