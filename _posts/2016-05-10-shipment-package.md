@@ -63,3 +63,166 @@ Retrieve list of packages by filters. Package data can be customized by specifyi
     </tr>
 </tbody>
 </table>
+
+## Entity Properties
+
+<h3 id="package_properties">
+    Package Properties
+</h3>
+
+<table class="table-striped">
+<tbody>
+    <tr>
+        <th>shipment_id</th>
+        <td>
+            <pre><code>{ "shipment" : "100000005" }</code></pre>
+            The "Shipment ID" property. This number may appear on the packing slip as the "Packing Slip #".
+        </td>
+    </tr>
+    <tr>
+        <th>order_unique_id</th>
+        <td>
+            <pre><code>{ "order_unique_id" : "100000010" }</code></pre>
+            The "unique_id" property for the order associated with this shipment.
+        </td>
+    </tr>
+    <tr>
+        <th>order_ref</th>
+        <td>
+            <pre><code>{ "order_ref" : "ABC-54321" }</code></pre>
+            The user-specified order "order_ref" field.
+        </td>
+    </tr>
+    <tr>
+        <th>package_status</th>
+        <td>
+            <pre><code>{ "package_status" : "not_on_manifest" }</code></pre>
+            The "Status" property. Allowed values: not_on_manifest, on_manifest, on_truck, received_by_carrier.
+        </td>
+    </tr>
+    <tr>
+        <th>updated_at</th>
+        <td>
+            <pre><code>{ "updated_at" : "2016-05-11 18:51:18" }</code></pre>
+            The "Updated At" property.
+        </td>
+    </tr>
+    <tr>
+        <th>items</th>
+        <td>
+            Array of <a href="#package_item_properties">Package Item</a> objects.
+        </td>
+    </tr>
+    <tr>
+        <th>tracking_numbers</th>
+        <td>
+            Array of <a href="#track_properties">Shipment Track</a> objects.
+        </td>
+    </tr>
+</tbody>
+</table>
+
+<h3 id="package_item_properties">
+    Package Item Properties
+</h3>
+
+<table class="table-striped">
+<tbody>
+    <tr>
+        <th>sku</th>
+        <td>
+            <pre><code>{ "sku" : "product1" }</code></pre>
+            The "SKU" property.
+        </td>
+    </tr>
+    <tr>
+        <th>name</th>
+        <td>
+            <pre><code>{ "name" : "product1" }</code></pre>
+            The "Name" property.
+        </td>
+    </tr>
+    <tr>
+        <th>weight</th>
+        <td>
+            <pre><code>{ "weight" : 12 }</code></pre>
+            The "Weight" propertry.
+        </td>
+    </tr>
+    <tr>
+        <th>qty</th>
+        <td>
+            <pre><code>{ "qty" : 1 }</code></pre>
+            The "Quantity" propertry.
+        </td>
+    </tr>
+    <tr>
+        <th>order_item_id</th>
+        <td>
+            <pre><code>{ "order_item_id" : 2 }</code></pre>
+            The internal order item ID.
+        </td>
+    </tr>
+    <tr>
+        <th>package_data</th>
+        <td>
+<pre><code>[
+    {"label" : "Serial Number - 8 Characters", "value" : "55285368"},
+    {"label" : "Serial Number - 8 Characters", "value" : "55285368"}
+]</code></pre>
+            The "Package Data" property.
+        </td>
+    </tr>
+</tbody>
+</table>
+
+<h3 id="track_properties">
+    Shipment Track Properties
+</h3>
+
+<table class="table-striped">
+<tbody>
+    <tr>
+        <th>track_id</th>
+        <td>
+            <pre><code>{ "track_id" : 1 }</code></pre>
+            The internal track ID.
+        </td>
+    </tr>
+    <tr>
+        <th>carrier</th>
+        <td>
+            <pre><code>{ "carrier" : "fedex" }</code></pre>
+            The carrier code.
+        </td>
+    </tr>
+    <tr>
+        <th>carrier_name</th>
+        <td>
+            <pre><code>{ "carrier_name" : "Federal Express" }</code></pre>
+            The carrier name.
+        </td>
+    </tr>
+    <tr>
+        <th>description</th>
+        <td>
+            <pre><code>{ "description" : "Express Saver" }</code></pre>
+            The method description (without the carrier name).
+        </td>
+    </tr>
+    <tr>
+        <th>number</th>
+        <td>
+            <pre><code>{ "track_number" : "800027315160887" }</code></pre>
+            The carrier's tracking number.
+        </td>
+    </tr>
+    <tr>
+        <th>date</th>
+        <td>
+            <pre><code>{ "created_at" : "2014-07-24T18:51:18+00:00" }</code></pre>
+            The date and time the tracking number was created.
+        </td>
+    </tr>
+</tbody>
+</table>
