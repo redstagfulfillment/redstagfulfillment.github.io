@@ -118,17 +118,42 @@ Import products in CSV format.
 
 ```javascript
 filter {
-  if ([message] =~ /^(s|S)ku/) {
-    drop {}
+  ruby {
+    code => 'event["raw_data"] = event["message"].kind_of?(Array) ? event["message"].first : event["message"]'
+  }
+  if ([line_number] == 1 and [message]) {
+    ruby {
+      code => 'event["message"] = event["message"].downcase.gsub!(/[ -]/,"_").gsub!(/[^\w,]/,"")'
+    }
   }
   csv {
-    columns => [
-      "sku", "name", "barcode", "goods_type", "weight", "length", "width", "height", "country_of_manufacture", "hts_base_code", "hts_country_code",
-      "requires_packaging", "confirmation_per_item", "special_box", "special_infill", "special_tape", "special_other", "unit_qty", "additional_regulatory_info", "meets_hazmat_specs"
-    ]
+    autodetect_column_names => true
   }
-  ruby {
-    code => 'event["raw_data"] = event["message"].first'
+  if ( ! [sku] or [sku] == '') and [name] {
+    mutate {
+      add_field => [ "_no_primary_key" , "SKU cannot be empty" ]
+      add_tag => "_no_primary_key"
+    }
+  }
+  if [goods_type] == 'Not Regulated' {
+    mutate {
+      replace => [ "goods_type", "NORMAL" ]
+    }
+  }
+  if [goods_type] == 'Dangerous Goods/Hazardous Materials' {
+    mutate {
+      replace => [ "goods_type", "HAZMAT" ]
+    }
+  }
+  mutate {
+    rename => [ "require_confirmation_per_item", "confirmation_per_item" ]
+    rename => [ "other_special_features", "special_other" ]
+    rename => [ "unit_quantity", "unit_qty" ]
+    rename => [ "additional_regulatory_information", "additional_regulatory_info" ]
+    rename => [ "container_meets_hazmat_specs", "meets_hazmat_specs" ]
+    convert => { "requires_packaging" => "boolean" }
+    convert => { "confirmation_per_item" => "boolean" }
+    convert => { "meets_hazmat_specs" => "boolean" }
   }
 }
 ```
