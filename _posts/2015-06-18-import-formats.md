@@ -15,7 +15,7 @@ order: 180
 
 ---
 
-Red Stag Fulfillment supports importing <a href="/ref/order.html#order_create">orders</a>,
+Red Stag Fulfillment supports importing <a href="/ref/order.html#ordercreate">orders</a>,
 <a href="/ref/product.html#product_create">products</a> and <a href="/ref/delivery.html#delivery_create">deliveries</a>
 either via the Merchant Panel or the <a href="/ref/import.html">Import</a> API.
 Standard CSV and JSON filters are provided which format the data to use the same values as
@@ -52,7 +52,7 @@ order_ref,shipping_method,firstname,lastname,company,street1,city,region,postcod
 Order - Standard JSON
 </h2>
 
-Importing orders in JSON format should follow the '<a href="/ref/order.html#order_create">order.create</a>' inputs exactly.
+Importing orders in JSON format should follow the '<a href="/ref/order.html#ordercreate">order.create</a>' inputs exactly.
 
 #### Example Input File
 
