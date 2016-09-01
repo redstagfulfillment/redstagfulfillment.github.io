@@ -15,75 +15,46 @@ order: 180
 
 ---
 
-Red Stag Fulfillment supports importing <a href="/ref/order.html">orders</a>, <a href="/ref/product.html">products</a> and <a href="/ref/delivery.html">deliveries</a>. <a href="http://logstash.net">Logstash</a> configuration is used to filter import data. Standard CSV and JSON filters use the same values as API. Read <a href="#custom_filter">here</a> how to create custom import format.
+Red Stag Fulfillment supports importing <a href="/ref/order.html#order_create">orders</a>,
+<a href="/ref/product.html#product_create">products</a> and <a href="/ref/delivery.html#delivery_create">deliveries</a>
+either via the Merchant Panel or the <a href="/ref/import.html">Import</a> API.
+Standard CSV and JSON filters are provided which format the data to use the same values as
+the respective API '*.create' methods so please see the documentation for those methods for
+details about supported field names and values.
+
+If you would like to create a custom import format please contact us for help and see the
+<a href="#custom_filter">Create custom import format</a> section for more information.
 
 ---
 <h2 id="order_standard_csv">
 Order - Standard CSV
 </h2>
 
-Import orders in CSV format.
+The header row defines which columns are used and each following line should consist of the
+order data, SKU and quantity for one order item. If the order contains multiple items they
+can be specified using additional rows and the order data can be either repeated (it will
+be ignored) or omitted as long as the 'order_ref' column is not omitted since it is used
+to group the order items together.
 
-#### Filter
+The order_ref field is required for CSV imports since it is used to group multi-item orders together
+unless there is only one order per file.
 
-```javascript
-filter {
-  if ([message] =~ /^(u|U)nique/) {
-    drop {}
-  }
-  csv {
-    columns => [
-      "unique_id", "order_ref", "shipping_method", "custom_greeting", "note", "signature_required", "overbox",
-      "requested_ship_date", "delayed_ship_date", "firstname", "lastname", "company", "street1", "street2",
-      "city", "region", "postcode", "country", "phone", "sku", "qty"
-    ]
-  }
-  push {
-    unique_field => "order_ref"
-    target => "order_items"
-    fields => [ "sku", "qty" ]
-  }
-  ruby {
-    code => '
-      event["items"] = Hash.new; 
-      event["order_items"].each { |value| event["items"]["#{value["sku"]}"] = "#{value["qty"]}" }
-    '
-    remove_field => [ "order_items" ]
-  }
-  ruby {
-    code => 'event["raw_data"] = event["message"].first'
-  }
-}
-```
-
-#### Example
+#### Example Input File
 
 ```
-,123456,ups_01,,,,,,,Bill,Gates,Microsoft,11 Times Square,,New York,NY,10036,US,212.245.2100,product1,5
-,123456,,,,,,,,,,,,,,,,,,product2,1
-,123456,,,,,,,,,,,,,,,,,,product3,2
+order_ref,shipping_method,firstname,lastname,company,street1,city,region,postcode,country,phone,sku,qty
+123456,ups_01,Bill,Gates,Microsoft,11 Times Square,New York,NY,10036,US,212.245.2100,product1,5
+123456,,,,,,,,,,,,product2,1
+123456,,,,,,,,,,,,product3,2
 ```
 
 <h2 id="order_standard_json">
 Order - Standard JSON
 </h2>
 
-Import orders in JSON format.
+Importing orders in JSON format should follow the '<a href="/ref/order.html#order_create">order.create</a>' inputs exactly.
 
-#### Filter
-
-```javascript
-filter {
-  json {
-    source => "message"
-  }
-  ruby {
-    code => 'event["raw_data"] = event["message"]'
-  }
-}
-```
-
-#### Example
+#### Example Input File
 
 ```javascript
 { 
@@ -112,79 +83,24 @@ filter {
 Product - Standard CSV
 </h2>
 
-Import products in CSV format.
+The header row should contain all field names and each following row contains product data. Each row must specify a SKU at minimum.
 
-#### Filter
+If a field supports multiple values such as 'hts_country_code' or 'special_other' then multiple values can be assigned by specifying values separated by the 'pipe' character: |
 
-```javascript
-filter {
-  ruby {
-    code => 'event["raw_data"] = event["message"].kind_of?(Array) ? event["message"].first : event["message"]'
-  }
-  if ([line_number] == 1 and [message]) {
-    ruby {
-      code => 'event["message"] = event["message"].downcase.gsub!(/[ -]/,"_").gsub!(/[^\w,]/,"")'
-    }
-  }
-  csv {
-    autodetect_column_names => true
-  }
-  if ( ! [sku] or [sku] == '') and [name] {
-    mutate {
-      add_field => [ "_no_primary_key" , "SKU cannot be empty" ]
-      add_tag => "_no_primary_key"
-    }
-  }
-  if [goods_type] == 'Not Regulated' {
-    mutate {
-      replace => [ "goods_type", "NORMAL" ]
-    }
-  }
-  if [goods_type] == 'Dangerous Goods/Hazardous Materials' {
-    mutate {
-      replace => [ "goods_type", "HAZMAT" ]
-    }
-  }
-  mutate {
-    rename => [ "require_confirmation_per_item", "confirmation_per_item" ]
-    rename => [ "other_special_features", "special_other" ]
-    rename => [ "unit_quantity", "unit_qty" ]
-    rename => [ "additional_regulatory_information", "additional_regulatory_info" ]
-    rename => [ "container_meets_hazmat_specs", "meets_hazmat_specs" ]
-    convert => { "requires_packaging" => "boolean" }
-    convert => { "confirmation_per_item" => "boolean" }
-    convert => { "meets_hazmat_specs" => "boolean" }
-  }
-}
-```
-
-#### Example
+#### Example Input File
 
 ```
 sku,name,barcode,goods_type,weight,length,width,height,country_of_manufacture,hts_base_code,hts_country_code,requires_packaging,confirmation_per_item,special_box,special_infill,special_tape,special_other,unit_qty
-"productsku","Product Name","productbarcode","NORMAL","1.75","123","100","28","DK","1234.56","BH:1000|ZW:1001",1,0,"specialboxsku","specialinfillsku","specialtapesku","specialothersku1|specialothersku2",5,"EX1995120111C",1
+"productsku","Product Name","productbarcode","NORMAL","1.75","123","100","28","DK","1234.56","BH:1000|ZW:1001",1,0,"specialboxsku","specialinfillsku","specialtapesku","specialothersku1|specialothersku2",5
 ```
 
 <h2 id="product_standard_json">
 Product - Standard JSON
 </h2>
 
-Import products in JSON format.
+Importing products in JSON format should follow the '<a href="/ref/product.html#product_create">product.create</a>' inputs exactly.
 
-#### Filter
-
-```javascript
-filter {
-  json {
-    source => "message"
-  }
-  ruby {
-    code => 'event["raw_data"] = event["message"]'
-  }
-}
-```
-
-#### Example
+#### Example Input File
 
 ```javascript
 {
@@ -216,60 +132,27 @@ filter {
 Delivery - Standard CSV
 </h2>
 
-Import deliveries in CSV format. "id" field is optional (not saved) and can be any unique value. The "id" field is only used to combine multi-line delivery items for a single delivery.
+The "id" field is only used to group multiple lines into a single delivery. If importing
+a single delivery it can be blank, but if importing multiple deliveries it should be unique
+for each separate delivery in the CSV file.
 
-#### Filter
-
-```javascript
-filter {
-  if ([message] =~ /^(i|I)d/) {
-    drop {}
-  }
-  csv {
-    columns => [
-      "id", "delivery_type", "sender_name", "carrier_name", "expected_delivery",
-      "merchant_ref", "sender_ref", "sku", "qty_expected"
-    ]
-  }
-  push {
-    unique_field => "id"
-    target => "items"
-    fields => [ "sku", "qty_expected" ]
-  }
-  ruby {
-    code => 'event["raw_data"] = event["message"].first'
-  }
-}
-```
-
-#### Example
+#### Example Input File
 
 ```
 id,delivery_type,sender_name,carrier_name,expected_delivery,merchant_ref,sender_ref,sku,qty_expected
-456,asn,Bill Gates,FedEx,"2014-07-31",12345,333,product1,5
-456,,,,,,,product2,1
+1,asn,Bill Gates,FedEx,"2014-07-31",12345,333,product1,50
+1,,,,,,,product2,100
+2,asn,Bill Gates,FedEx,"2014-08-12",12346,339,product3,40
+2,,,,,,,product4,200
 ```
 
 <h2 id="delivery_standard_json">
 Delivery - Standard JSON
 </h2>
 
-Import deliveries in JSON format.
+Importing deliveries in JSON format should follow the '<a href="/ref/delivery.html#delivery_create">delivery.create</a>' inputs exactly.
 
-#### Filter
-
-```javascript
-filter {
-  json {
-    source => "message"
-  }
-  ruby {
-    code => 'event["raw_data"] = event["message"]'
-  }
-}
-```
-
-#### Example
+#### Example Input File
 
 ```javascript
 { 
@@ -300,7 +183,12 @@ filter {
 Create custom import format
 </h2>
 
-Logstash uses input {...}, filter {...} and output {...} configuration. "input" and "output" configuration is already defined and only "filter" part of the configuration can be changed. "input" uses stdin and adds "line_number" to each line of the import file. "output" is different for each import type. Custom import format should get data after "input", make required modifications and prepare the data for the "output" format corresponding to the import type. Standard CSV and JSON configuration can be taken as a basis.
+Logstash uses input {...}, filter {...} and output {...} configuration. "input" and "output" configuration
+is already defined and only the "filter" part of the configuration can be specified by the user.
+
+The "input" uses stdin and adds "line_number" to each line of the import files. The "output" is different
+for each import type. A custom import format should get data after "input", make required modifications and
+prepare the data for the "output" format corresponding to the import type.
 
 #### input
 
@@ -316,6 +204,19 @@ filter {
         $LINE = 0;
       end;
       $LINE += 1; event["line_number"] = $LINE;'
+  }
+}
+```
+
+#### filter for JSON format
+
+```javascript
+filter {
+  json {
+    source => "message"
+  }
+  ruby {
+    code => 'event["raw_data"] = event["message"]'
   }
 }
 ```
