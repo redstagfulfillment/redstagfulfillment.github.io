@@ -66,7 +66,7 @@ An array of [Inventory Items](#inventory_item) or an empty array if there were n
 
 Get inventory for two SKUs:
 
-```javascript
+```json
 {
     "jsonrpc" : 2.0,
     "id" : 1234,
@@ -81,7 +81,7 @@ Get inventory for two SKUs:
 
 Get all inventory:
 
-```javascript
+```json
 {
     "jsonrpc" : 2.0,
     "id" : 1234,
@@ -95,7 +95,7 @@ Get all inventory:
 
 #### Example Response
 
-```javascript
+```json
 {
     "jsonrpc" : 2.0,
     "id" : 1234,

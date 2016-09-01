@@ -56,7 +56,7 @@ Importing orders in JSON format should follow the '<a href="/ref/order.html#orde
 
 #### Example Input File
 
-```javascript
+```json
 { 
   "order_ref" : "123456", 
   "shipping_method" : "ups_01", 
@@ -102,7 +102,7 @@ Importing products in JSON format should follow the '<a href="/ref/product.html#
 
 #### Example Input File
 
-```javascript
+```json
 {
   "name" : "Product 3",
   "barcode" : "product3",
@@ -154,7 +154,7 @@ Importing deliveries in JSON format should follow the '<a href="/ref/delivery.ht
 
 #### Example Input File
 
-```javascript
+```json
 { 
   "delivery_type" : "asn", 
   "sender_name" : "Bill Gates", 
@@ -192,7 +192,7 @@ prepare the data for the "output" format corresponding to the import type.
 
 #### input
 
-```javascript
+```json
 input {
   stdin { type => "stdin-type" }
 }
@@ -210,7 +210,7 @@ filter {
 
 #### filter for JSON format
 
-```javascript
+```json
 filter {
   json {
     source => "message"
@@ -223,7 +223,7 @@ filter {
 
 #### output for Order
 
-```javascript
+```json
 filter {
   ruby {
     code => 'event["parsed_data"] = {
@@ -260,7 +260,7 @@ filter {
 
 #### output for Product
 
-```javascript
+```json
 filter {
   ruby {
     code => 'event["parsed_data"] = {
@@ -284,7 +284,7 @@ filter {
 
 #### output for Delivery
 
-```javascript
+```json
 filter {
   ruby {
     code => 'event["parsed_data"] = {

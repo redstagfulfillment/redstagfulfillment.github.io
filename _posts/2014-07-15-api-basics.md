@@ -112,7 +112,7 @@ Upon a successful login the result will be a session ID which is a 32-character 
     <pre><span class="api-endpoint-request-type">POST</span>/backend/api/jsonrpc</pre>
 </div>
 
-```javascript
+```json
 {
     "jsonrpc" : 2.0,
     "id" : 1234,
@@ -128,7 +128,7 @@ Upon a successful login the result will be a session ID which is a 32-character 
 
 An example response for a successful login:
 
-```javascript
+```json
 {
     "jsonrpc" : 2.0,
     "id" : 1234,
@@ -138,7 +138,7 @@ An example response for a successful login:
 
 An example response for if the session is expired:
 
-```javascript
+```json
 {
     "jsonrpc" : 2.0,
     "id" : 1234,

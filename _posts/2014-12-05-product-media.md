@@ -61,7 +61,7 @@ An array of objects. Each object will contain "<a href="#image_data">Image Data<
 
 Get product images by product SKU:
 
-```javascript
+```json
 {
     "jsonrpc" : 2.0,
     "id" : 1234,
@@ -80,7 +80,7 @@ Get product images by product SKU:
 
 #### Example Response
 
-```javascript
+```json
 {
     "jsonrpc" : 2.0,
     "id" : 1234,
@@ -148,7 +148,7 @@ Object with "<a href="#image_data">Image Data</a>".
 
 #### Example Request
 
-```javascript
+```json
 {
     "jsonrpc" : 2.0,
     "id" : 1234,
@@ -168,7 +168,7 @@ Object with "<a href="#image_data">Image Data</a>".
 
 #### Example Response
 
-```javascript
+```json
 {
     "jsonrpc" : 2.0,
     "id" : 1234,
@@ -224,7 +224,7 @@ An array of objects. Each object will contain "<a href="#image_type_properties">
 
 #### Example Request
 
-```javascript
+```json
 {
     "jsonrpc" : 2.0,
     "id" : 1234,
@@ -241,7 +241,7 @@ An array of objects. Each object will contain "<a href="#image_type_properties">
 
 #### Example Response
 
-```javascript
+```json
 {
     "jsonrpc" : 2.0,
     "id" : 1234,
@@ -298,7 +298,7 @@ Image file name (e.g., "/i/m/image.png")
 
 #### Example Request
 
-```javascript
+```json
 {
     "jsonrpc" : 2.0,
     "id" : 1234,
@@ -328,7 +328,7 @@ Image file name (e.g., "/i/m/image.png")
 
 #### Example Response
 
-```javascript
+```json
 {
     "jsonrpc" : 2.0,
     "id" : 1234,
@@ -394,7 +394,7 @@ True, if the image has been uploaded
 
 #### Example Request
 
-```javascript
+```json
 {
     "jsonrpc" : 2.0,
     "id" : 1234,
@@ -424,7 +424,7 @@ True, if the image has been uploaded
 
 #### Example Response
 
-```javascript
+```json
 {
     "jsonrpc" : 2.0,
     "id" : 1234,
@@ -477,7 +477,7 @@ True, if the image has been removed
 
 #### Example Request
 
-```javascript
+```json
 {
     "jsonrpc" : 2.0,
     "id" : 1234,
@@ -497,7 +497,7 @@ True, if the image has been removed
 
 #### Example Response
 
-```javascript
+```json
 {
     "jsonrpc" : 2.0,
     "id" : 1234,

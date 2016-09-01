@@ -38,7 +38,7 @@ An array of objects with warehouse information.
 
 Retrieve warehouses information:
 
-```javascript
+```json
 {
     "jsonrpc" : 2.0,
     "id" : 1234,
@@ -53,7 +53,7 @@ Retrieve warehouses information:
 
 #### Example Response
 
-```javascript
+```json
 {
     "jsonrpc" : 2.0,
     "id" : 1234,
