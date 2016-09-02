@@ -28,14 +28,13 @@ baseurl: ''
 # Dates are not included in permalinks
 permalink: none
 
-# Syntax highlighting
-pygments: true
-
 # Since these are pages, it doesn't really matter
 future: true
 
 # Exclude non-site files
 exclude: ['bin', 'README.md']
 
+markdown: kramdown
+highlighter: rouge
 kramdown:
   toc_levels: "1,2"
