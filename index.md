@@ -17,7 +17,10 @@ What is this "API"?
 
 Our API can do just about everything the user interface can do and a few other things as well.
 
-First, you can use it to push data into our system from yours, such as orders, products and deliveries.
+First, you can use it to _push_ data into our system from yours, such as orders, products and deliveries
+and you can _pull_ back data like order statuses, package contents and details and delivery processing results.
+You can also request rate quotes which are based on your negotiated rates and update existing data (for example,
+put an order on hold).  
 
 You can also subscribe to "[Webhooks](/ref/webhook.html)" and have our system push information
 (like inventory updates and tracking numbers) directly to yours in real-time!
