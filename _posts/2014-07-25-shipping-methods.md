@@ -11,112 +11,45 @@ The following shipping methods are supported by the API where a "shipping_method
 
 #### FedEx Methods
 
-<table class="table-striped shipping-methods">
-<tr>
-  <th>fedex_FEDEX_2_DAY</th>
-  <td>
-  	Federal Express - 2 Day
-  </td>	
-</tr>
-<tr>
-  <th>fedex_FEDEX_2_DAY_AM</th>
-  <td>
-  	Federal Express - 2 Day AM
-  </td>	
-</tr>
-<tr>
-  <th>fedex_FEDEX_EXPRESS_SAVER</th>
-  <td>
-  	Federal Express - Express Saver
-  </td>	
-</tr>
-<tr>
-  <th>fedex_FEDEX_GROUND</th>
-  <td>
-  	Federal Express - Ground
-  </td>	
-</tr>
-<tr>
-  <th>fedex_INTERNATIONAL_ECONOMY</th>
-  <td>
-  	Federal Express - International Economy
-  </td>	
-</tr>
-<tr>
-  <th>fedex_INTERNATIONAL_PRIORITY</th>
-  <td>
-  	Federal Express - International Priority
-  </td>	
-</tr>
-<tr>
-  <th>fedex_FIRST_OVERNIGHT</th>
-  <td>
-  	Federal Express - First Overnight
-  </td>	
-</tr>
-<tr>
-  <th>fedex_GROUND_HOME_DELIVERY</th>
-  <td>
-  	Federal Express - Home Delivery
-  </td>	
-</tr>
-<tr>
-  <th>fedex_PRIORITY_OVERNIGHT</th>
-  <td>
-  	Federal Express - Priority Overnight
-  </td>	
-</tr>
-<tr>
-  <th>fedex_SMART_POST</th>
-  <td>
-  	Federal Express - Smart Post
-  </td>	
-</tr>
-<tr>
-  <th>fedex_STANDARD_OVERNIGHT</th>
-  <td>
-  	Federal Express - Standard Overnight
-  </td>	
-</tr>
-</table>
+| Code | Description |
+|:-----:|:-------------|
+| fedex_FEDEX_2_DAY | FedEx 2Day&reg; |
+| fedex_FEDEX_2_DAY_AM | FedEx 2Day&reg; A.M. |
+| fedex_FEDEX_EXPRESS_SAVER | FedEx Express Saver&reg; |
+| fedex_FEDEX_GROUND | FedEx Ground&reg; |
+| fedex_INTERNATIONAL_ECONOMY | FedEx International Economy&reg; |
+| fedex_INTERNATIONAL_PRIORITY | FedEx International Priority&reg; |
+| fedex_FIRST_OVERNIGHT | FedEx First Overnight&reg; |
+| fedex_GROUND_HOME_DELIVERY | FedEx Home Delivery&reg; |
+| fedex_PRIORITY_OVERNIGHT | FedEx Priority Overnight&reg; |
+| fedex_STANDARD_OVERNIGHT | FedEx Standard Overnight&reg; |
+| fedex_SMART_POST | FedEx SmartPost&reg; |
 
 #### UPS Methods
 
-<table class="table-striped shipping-methods">
-<tr>
-  <th>ups_01</th>
-  <td>
-  	United Parcel Service - UPS Next Day Air
-  </td>
-</tr>
-<tr>
-  <th>ups_02</th>
-  <td>
-  	United Parcel Service - UPS Second Day Air
-  </td>
-</tr>
-<tr>
-  <th>ups_03</th>
-  <td>
-  	United Parcel Service - UPS Ground
-  </td>
-</tr>
-<tr>
-  <th>ups_12</th>
-  <td>
-  	United Parcel Service - UPS Three-Day Select
-  </td>	
-</tr>
-<tr>
-  <th>ups_14</th>
-  <td>
-  	United Parcel Service - UPS Next Day Air Early A.M.
-  </td>	
-</tr>
-<tr>
-  <th>ups_59</th>
-  <td>
-  	United Parcel Service - UPS Second Day Air A.M.
-  </td>	
-</tr>
-</table>
+| Code | Description |
+|:-----:|:-------------|
+| ups_01 | UPS Next Day Air |
+| ups_02 | UPS Second Day Air |
+| ups_03 | UPS Ground |
+| ups_12 | UPS Three-Day Select |
+| ups_14 | UPS Next Day Air Early A.M. |
+| ups_59 | UPS Second Day Air A.M. |
+
+#### USPS Methods (via Stamps.com)
+
+| Code | Description |
+|:-----:|:-------------|
+| usps_US-FC | USPS First-Class Mail |
+| usps_US-FCI | USPS First Class Mail International |
+| usps_US-LM | USPS Library Mail |
+| usps_US-MM | USPS Media Mail |
+| usps_US-PS | USPS Parcel Select Ground |
+| usps_US-PM | USPS Priority Mail |
+| usps_US-XM | USPS Priority Mail Express |
+| usps_US-EMI | USPS Priority Mail Express International |
+| usps_US-PMI | USPS Priority Mail International |
+
+#### External Processing
+
+These methods are all user-defined and the code used for the API should be prefixed with `external_`.
