@@ -137,7 +137,7 @@ Get all inventory:
 	A unique identifier for a product. The SKU does appear on the packing slip. It is recommended that this be human-readable
 	and end with a per-pack quantity to facilitate proper receiving. For example, a single blue widget may be "BlueWidget-1" and
 	a pack of 5 blue widgets may be "BlueWidget-5". Maximum character length is 64.
-</tr>
+</td></tr>
 <tr><th>qty_expected</th>
 <td>
 	<pre><code>{ "qty_expected" : 1 }</code></pre>
