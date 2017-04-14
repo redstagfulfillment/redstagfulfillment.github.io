@@ -59,6 +59,3 @@ The following shipping methods are supported by the API where a "shipping_method
 |:-----:|:-------------|
 | external_ltl | LTL |
 | external_ltl_thirdparty | LTL - Third Party |
-
-
-These methods are all user-defined and the code used for the API should be prefixed with `external_`.
