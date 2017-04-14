@@ -53,6 +53,12 @@ The following shipping methods are supported by the API where a "shipping_method
 | usps_US-PS | USPS Parcel Select Ground |
 -->
 
-#### External Processing
+#### Other
+
+| Code | Description |
+|:-----:|:-------------|
+| external_ltl | LTL |
+| external_ltl_thirdparty | LTL - Third Party |
+
 
 These methods are all user-defined and the code used for the API should be prefixed with `external_`.
