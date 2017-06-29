@@ -10,7 +10,6 @@ order: 21
 #### Methods
 
  * [product_media.list](#product_media_list)
- * [product_media.info](#product_media_info)
  * [product_media.types](#product_media_types)
  * [product_media.create](#product_media_create)
  * [product_media.update](#product_media_update)
@@ -28,7 +27,7 @@ order: 21
 
 <h1 id="product_media_list">
 product_media.list
-<code>(string $sku, null|string|number $store = 0)</code>
+<code>(string $sku)</code>
 </h1>
 
 Retrieve list of product images
@@ -41,14 +40,6 @@ Retrieve list of product images
     <tr>
         <td>0</td>
         <td>string - Product SKU.</td>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td><ul>
-            <li>null - Use default store.</li>
-            <li>int - Use specified store.</li>
-            <li>string - Use specified store.</li>
-        </ul></td>
     </tr>
 </tbody>
 </table>
@@ -111,94 +102,6 @@ Get product images by product SKU:
 
 ----
 
-<h1 id="product_media_info">
-product_media.info
-<code>(string $sku, string $file, null|string|number $store = 0)</code>
-</h1>
-
-Retrieve information about the specified product image.
-
-#### Parameters
-
-<table class="table">
-<thead><tr><th>order</th><th>description</th></tr></thead>
-<tbody>
-    <tr>
-        <td>0</td>
-        <td>string - Product SKU.</td>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>string - Image file.</td>
-    </tr>
-    <tr>
-        <td>2</td>
-        <td><ul>
-            <li>null - Use default store.</li>
-            <li>int - Use specified store.</li>
-            <li>string - Use specified store.</li>
-        </ul></td>
-    </tr>
-</tbody>
-</table>
-
-#### Return Value
-
-Object with "<a href="#image_data">Image Data</a>".
-
-#### Example Request
-
-```json
-{
-    "jsonrpc" : 2.0,
-    "id" : 1234,
-    "method" : "call",
-    "params" : [
-        "be1c13ed4e03f0ed7f1e4053dfff9658",
-        "product_media.info",
-        [
-            {
-                "sku" : { "eq" : "product2" },
-                "file" : { "eq" : "/b/l/blackberry8100_2.jpg" }
-            }
-        ]
-    ]
-}
-```
-
-#### Example Response
-
-```json
-{
-    "jsonrpc" : 2.0,
-    "id" : 1234,
-    "error" : null,
-    "result" : {
-        "file" : "/b/l/blackberry8100_2.jpg",
-        "position" : 1,
-        "exclude" : 0,
-        "url" : "http://magentohost/media/catalog/product/b/l/blackberry8100_2.jpg",
-        "types" : [
-            "image", 
-            "thumbnail"
-        ]
-    }
-}
-```
-
-----
-
-#### Error Codes
-
-| code | message |
-| ---- | ------- |
-| 100 | Requested store view not found. |
-| 101 | Product not exists. |
-| 103 | Requested image not exists in product images' gallery. |
-| 107 | Requested product doesn't support images |
-
-----
-
 <h1 id="product_media_types">
 product_media.types
 <code>(number $setId)</code>
@@ -232,9 +135,7 @@ An array of objects. Each object will contain "<a href="#image_type_properties">
     "params" : [
         "be1c13ed4e03f0ed7f1e4053dfff9658",
         "product_media.types",
-        {
-            "setId" : { "eq" : 4 }
-        }
+        4
     ]
 }
 ```
@@ -263,7 +164,7 @@ An array of objects. Each object will contain "<a href="#image_type_properties">
 
 <h1 id="product_media_create">
 product_media.create
-<code>(string $sku, object $data, null|string|number $store = 0)</code>
+<code>(string $sku, object $data)</code>
 </h1>
 
 Upload new product image
@@ -280,14 +181,6 @@ Upload new product image
     <tr>
         <td>1</td>
         <td>object - Image data.</td>
-    </tr>
-    <tr>
-        <td>2</td>
-        <td><ul>
-            <li>null - Use default store.</li>
-            <li>int - Use specified store.</li>
-            <li>string - Use specified store.</li>
-        </ul></td>
     </tr>
 </tbody>
 </table>
@@ -307,19 +200,17 @@ Image file name (e.g., "/i/m/image.png")
         "be1c13ed4e03f0ed7f1e4053dfff9658",
         "product_media.create",
         [
+            "product2",
             {
-                "sku" : { "eq" : "product2" },
-                {
-                    "file" : {
-                        "content" : "base64 encoded content",
-                        "type": "image/jpeg"
-                    },
-                    "position" : 100,
-                    "types" : [
-                        "thumbnail"
-                    ],
-                    "exclude" : 0
-                }
+                "file" : {
+                    "content" : "base64 encoded content",
+                    "mime": "image/jpeg"
+                },
+                "position" : 100,
+                "types" : [
+                    "thumbnail"
+                ],
+                "exclude" : 0
             }
         ]
     ]
@@ -355,7 +246,7 @@ Image file name (e.g., "/i/m/image.png")
 
 <h1 id="product_media_update">
 product_media.update
-<code>(string $sku, string $file, object $data, null|string|number $store = 0)</code>
+<code>(string $sku, string $file, object $data)</code>
 </h1>
 
 Update product image
@@ -371,19 +262,11 @@ Update product image
     </tr>
     <tr>
         <td>1</td>
-        <td>string - Image file.</td>
+        <td>string - Image file name.</td>
     </tr>
     <tr>
         <td>2</td>
         <td>object - Image data.</td>
-    </tr>
-    <tr>
-        <td>3</td>
-        <td><ul>
-            <li>null - Use default store.</li>
-            <li>int - Use specified store.</li>
-            <li>string - Use specified store.</li>
-        </ul></td>
     </tr>
 </tbody>
 </table>
@@ -403,19 +286,18 @@ True, if the image has been uploaded
         "be1c13ed4e03f0ed7f1e4053dfff9658",
         "product_media.update",
         [
+            "product2",
+            "/i/m/image.png",
             {
-                "sku" : { "eq" : "product2" },
-                {
-                    "file" : {
-                        "content" : "base64 encoded content",
-                        "type": "image/jpeg"
-                    },
-                    "position" : 100,
-                    "types" : [
-                        "thumbnail"
-                    ],
-                    "exclude" : 1
-                }
+                "file" : {
+                    "content" : "base64 encoded content",
+                    "mime": "image/jpeg"
+                },
+                "position" : 100,
+                "types" : [
+                    "thumbnail"
+                ],
+                "exclude" : 1
             }
         ]
     ]
@@ -484,12 +366,10 @@ True, if the image has been removed
     "method" : "call",
     "params" : [
         "be1c13ed4e03f0ed7f1e4053dfff9658",
-        "product_media.delete",
+        "product_media.remove",
         [
-            {
-                "sku" : { "eq" : "product2" },
-                "file" : { "eq" : "/b/l/blackberry8100_2.jpg" }
-            }
+            "product2",
+            "/b/l/blackberry8100_2.jpg"
         ]
     ]
 }
@@ -537,7 +417,7 @@ True, if the image has been removed
     <tr>
         <th>scope</th>
         <td>
-            <pre><code>{ "scode" : "global" }</code></pre>
+            <pre><code>{ "scope" : "global" }</code></pre>
             The "Scope" property. Allowed: "global", "website", "store".
         </td>
     </tr>
@@ -609,7 +489,7 @@ True, if the image has been removed
     <tr>
         <th>url</th>
         <td>
-            <pre><code>{ "url" : "http://magentohost/media/catalog/product/b/l/blackberry8100_2.jpg" }</code></pre>
+            <pre><code>{ "url" : "http://redstagfulfillment.com/backend/media/catalog/product/b/l/blackberry8100_2.jpg" }</code></pre>
         </td>
     </tr>
     <tr>
