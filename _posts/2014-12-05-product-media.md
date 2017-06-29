@@ -61,9 +61,7 @@ Get product images by product SKU:
         "be1c13ed4e03f0ed7f1e4053dfff9658",
         "product_media.list",
         [
-            {
-                "sku" : { "eq" : "product2" }
-            }
+            "product2"
         ]
     ]
 }
@@ -135,7 +133,9 @@ An array of objects. Each object will contain "<a href="#image_type_properties">
     "params" : [
         "be1c13ed4e03f0ed7f1e4053dfff9658",
         "product_media.types",
-        4
+        [
+            4        
+        ]
     ]
 }
 ```
