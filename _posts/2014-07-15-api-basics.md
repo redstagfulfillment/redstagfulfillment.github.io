@@ -91,7 +91,7 @@ login `(username, api_key)`
 =====
 
 An API session is started by calling the `login` method to get a session ID. The session ID must be provided for
-subsequent calls to `call` and will expire after 1 hour.
+subsequent calls to `call` and will expire after 24 hours.
 
 #### Parameters
 
