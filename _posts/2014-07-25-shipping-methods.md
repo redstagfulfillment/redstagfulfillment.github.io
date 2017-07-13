@@ -40,14 +40,14 @@ The following shipping methods are supported by the API where a "shipping_method
 
 | Code | Description |
 |:-----:|:-------------|
+| usps_US-FC | USPS First-Class |
+| usps_US-FCI | USPS First-Class International |
 | usps_US-PM | USPS Priority Mail |
 | usps_US-PMI | USPS Priority Mail International |
 
 <!--
 | usps_US-XM | USPS Priority Mail Express |
 | usps_US-EMI | USPS Priority Mail Express International |
-| usps_US-FC | USPS First-Class Mail |
-| usps_US-FCI | USPS First Class Mail International |
 | usps_US-LM | USPS Library Mail |
 | usps_US-MM | USPS Media Mail |
 | usps_US-PS | USPS Parcel Select Ground |
