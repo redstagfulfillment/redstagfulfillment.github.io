@@ -35,28 +35,28 @@ Additionally, products have two flags that can be set which will affect whether 
  * **Visibility** - Visible/Not Visible - If "Not Visible", the product will not appear in the inventory list but may still be ordered via the Merchant Panel.
 
 
-<h1 id="inventory_list">
 inventory.list
-<code>(string|array|null $skus)</code>
-</h1>
+==============
 
-Get inventory levels for one or more products by SKU.
+~~~ slim
+inventory.list (string|array|null $skus, int|null $warehouseId)
+~~~
+
+Get inventory levels for one or more products by SKU. If a warehouse is not specified the sum of all warehouse inventories
+will be returned, otherwise the inventory levels for the specified warehouse will be returned.
 
 #### Parameters
 
-<table class="table">
-<thead><tr><th>order</th><th>description</th></tr></thead>
-<tbody>
-    <tr>
-        <td>0</td>
-        <td><ul>
-        <li>null - Get inventory for all products.</li>
-        <li>string - Get inventory for a single product by SKU.</li>
-        <li>array - Get inventory for the specified products by SKU.</li>
-        </ul></td>
-    </tr>
-</tbody>
-</table>
+0 _string|array|null_
+: SKUs. If not specified then inventory for all SKUs will be returned.
+  - string - Get inventory for a single product by SKU.
+  - array - Get inventory for the specified products by SKU.
+  - null - Get inventory for all products.
+
+  
+1 _int|null_
+: Warehouse. If not specified, returned values represent sums of all warehouses.
+{:.code-defs.wide}
 
 #### Return Value
 
@@ -89,6 +89,21 @@ Get all inventory:
     "params" : [
         "be1c13ed4e03f0ed7f1e4053dfff9658",
         "inventory.list"
+    ]
+}
+```
+
+Get all inventory for warehouse "2":
+
+```json
+{
+    "jsonrpc" : 2.0,
+    "id" : 1234,
+    "method" : "call",
+    "params" : [
+        "be1c13ed4e03f0ed7f1e4053dfff9658",
+        "inventory.list",
+        [null, 2]
     ]
 }
 ```
@@ -171,6 +186,8 @@ Get all inventory:
 <tr><th>qty_backordered</th>
 <td>
 	<pre><code>{ "qty_backordered" : 1 }</code></pre>
-	The "Backordered" quantity.
+	The "Backordered" quantity. This quantity will not be present
+	for single-warehouse requests since backordered amounts are not
+	apportioned to specific warehouses.
 </td></tr>
 </table>
