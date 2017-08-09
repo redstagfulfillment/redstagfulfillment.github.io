@@ -74,7 +74,9 @@ Get inventory for two SKUs:
     "params" : [
         "be1c13ed4e03f0ed7f1e4053dfff9658",
         "inventory.list",
-        ["BlueWidget-1","BlueWidget-5"]
+        [
+            ["BlueWidget-1","BlueWidget-5"]
+        ]
     ]
 }
 ```
@@ -103,7 +105,10 @@ Get all inventory for warehouse "2":
     "params" : [
         "be1c13ed4e03f0ed7f1e4053dfff9658",
         "inventory.list",
-        [null, 2]
+        [
+            null,
+            2
+        ]
     ]
 }
 ```
