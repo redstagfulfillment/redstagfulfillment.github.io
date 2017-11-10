@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Order Packing"
+title: "Order"
 category: ref
 parent: "Order"
 date: 2017-11-10 14:42:47
@@ -189,7 +189,7 @@ Retrieve full order packing information.
 0 _string_
 : Packing ID
 
-1 _string|null_
+1 _array|null_
 : Fields
 
 #### Return Value
@@ -263,7 +263,7 @@ Create a new order packing instruction.
 0 _string_
 : Order unique ID
 
-1 _string|null_
+1 _array|null_
 : Fields
 
 #### Return Value
