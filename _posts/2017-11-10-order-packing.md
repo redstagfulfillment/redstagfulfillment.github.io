@@ -16,6 +16,84 @@ order: 17
  * [order_packing.delete](#order_packing_delete)
  
 ----
+
+order_packing.create
+===========
+
+~~~ slim
+order_packing.create (string $orderUniqueId, string $note, object $options)
+~~~
+
+Create a new order packing instruction.
+
+#### Parameters
+
+0 _string_
+: Order unique ID.
+
+1 _string_
+: Note
+
+2 _object_
+: Additional Options (see "[Order Packing](#order_packing_properties)") 
+{:.code-defs.wide}
+
+#### Return Value
+ 
+An object with the new [Order Packing](#order_packing_properties).
+
+#### Example Request
+
+```json
+{
+    "jsonrpc" : 2.0,
+    "id" : 1234,
+    "method" : "call",
+    "params" : [
+        "be1c13ed4e03f0ed7f1e4053dfff9658",
+        "order_packing.create",
+        [
+            "100000309",
+            "Place Amazon FBA Label in a pouch"
+            {
+                "file_name" : "amazon_fba_3425232.pdf",
+                "file_content" : "base64 encoded file content",
+                "print_copies" : "one_per_shipment",
+                "print_target" : "LASER"
+            },
+        ]
+    ]
+}
+```
+
+#### Example Response
+
+```json
+{
+    "jsonrpc" : 2.0,
+    "id" : 1234,
+    "error" : null,
+    "result" : {
+        "packing_id" : 1,
+        "order_id" : 118,
+        "unique_id" : "100000309",
+        "note" : "Place Amazon FBA Label in a pouch",
+        "file_name" : "amazon_fba_3425232.pdf",
+        "file_content" : "base64 encoded file content",
+        "print_copies" : "one_per_shipment",
+        "print_target" : "LASER"
+    }
+}
+```
+
+----
+
+#### Error Codes
+
+| code | message |
+| ---- | ------- |
+| 100 | Invalid data given. Details in error message. |
+| 102 | Requested order does not exist. |
  
 #### Entity Properties
 
