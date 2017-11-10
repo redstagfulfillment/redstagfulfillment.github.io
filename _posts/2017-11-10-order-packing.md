@@ -20,7 +20,6 @@ order: 17
 <h1 id="order_packing_create">
 order_packing.create
 </h1>
-===========
 
 ~~~ slim
 order_packing.create (string $orderUniqueId, string $note, object|null $options)
@@ -98,8 +97,9 @@ An object with the new [Order Packing](#order_packing_properties). The "file_con
 
 ----
 
+<h1 id="order_packing_edit">
 order_packing.edit
-===========
+</h1>
 
 ~~~ slim
 order_packing.edit (string $packingId, string|null $note, object|null $options)
@@ -174,8 +174,9 @@ An object with the updated [Order Packing](#order_packing_properties). The "file
 
 ----
 
+<h1 id="order_packing_info">
 order_packing.info
-===========
+</h1>
 
 ~~~ slim
 order_packing.info (string $packingId, object|null $fields)
