@@ -103,7 +103,7 @@ order_packing.edit
 order_packing.edit (string $packingId, string|null $note, object|null $options)
 ~~~
 
-Create a new order packing instruction.
+Modify the order packing instruction.
 
 #### Parameters
 
@@ -168,7 +168,78 @@ An object with the updated [Order Packing](#order_packing_properties). The "file
 | 100 | Invalid data given. Details in error message. |
 | 101 | Requested order packing does not exist. |
 
+----
 
+order_packing.info
+===========
+
+~~~ slim
+order_packing.info (string $packingId, object|null $fields)
+~~~
+
+Retrieve full order packing information.
+
+#### Parameters
+
+0 _string_
+: Packing ID.
+
+1 _string|null_
+: Fields
+
+#### Return Value
+
+Object which contains [Order Packing](#order_packing_properties) properties. Include "file_content" to the list of the fields to return 
+the "file_content" property.
+
+#### Example Request
+
+```json
+{
+    "jsonrpc" : 2.0,
+    "id" : 1234,
+    "method" : "call",
+    "params" : [
+        "be1c13ed4e03f0ed7f1e4053dfff9658",
+        "order_packing.info",
+        [
+            123,
+            {
+                "fields" : [ "file_content" ]
+            }
+        ]
+    ]
+}
+```
+
+#### Example Response
+
+```json
+{
+    "jsonrpc" : 2.0,
+    "id" : 1234,
+    "error" : null,
+    "result" : {
+        "packing_id" : 123,
+        "order_id" : 118,
+        "unique_id" : "100000309",
+        "note" : "Place Amazon FBA Label in a pouch",
+        "file_name" : "amazon_fba_3425232.pdf",
+        "file_content" : "base64 encoded file content",
+        "print_copies" : "one_per_order",
+        "print_target" : "LASER"
+    }
+}
+```
+
+----
+
+#### Error Codes
+
+| code | message |
+| ---- | ------- |
+| 100 | Invalid data given. Details in error message. |
+| 101 | Requested order packing does not exist. |
  
 #### Entity Properties
 
