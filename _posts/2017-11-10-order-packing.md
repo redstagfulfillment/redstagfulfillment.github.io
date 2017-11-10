@@ -40,7 +40,7 @@ Create a new order packing instruction.
 
 #### Return Value
  
-An object with the new [Order Packing](#order_packing_properties).
+An object with the new [Order Packing](#order_packing_properties). The "file_content" property is not returned. Use [order_packing.info](#order_packing_info) method to retrieve it.
 
 #### Example Request
 
@@ -79,7 +79,6 @@ An object with the new [Order Packing](#order_packing_properties).
         "unique_id" : "100000309",
         "note" : "Place Amazon FBA Label in a pouch",
         "file_name" : "amazon_fba_3425232.pdf",
-        "file_content" : "base64 encoded file content",
         "print_copies" : "one_per_shipment",
         "print_target" : "LASER"
     }
