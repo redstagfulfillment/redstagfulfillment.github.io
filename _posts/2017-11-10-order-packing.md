@@ -29,7 +29,7 @@ Create a new order packing instruction.
 #### Parameters
 
 0 _string_
-: Order unique ID.
+: Order unique ID
 
 1 _string_
 : Note
@@ -108,7 +108,7 @@ Modify the order packing instruction.
 #### Parameters
 
 0 _string_
-: Packing ID.
+: Packing ID
 
 1 _string|null_
 : Note
@@ -132,6 +132,8 @@ An object with the updated [Order Packing](#order_packing_properties). The "file
         "be1c13ed4e03f0ed7f1e4053dfff9658",
         "order_packing.edit",
         [
+            123,
+            null,
             {
                 "print_copies" : "one_per_order"
             }
@@ -182,7 +184,7 @@ Retrieve full order packing information.
 #### Parameters
 
 0 _string_
-: Packing ID.
+: Packing ID
 
 1 _string|null_
 : Fields
