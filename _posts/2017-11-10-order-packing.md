@@ -21,7 +21,7 @@ order_packing.create
 ===========
 
 ~~~ slim
-order_packing.create (string $orderUniqueId, string $note, object $options)
+order_packing.create (string $orderUniqueId, string $note, object|null $options)
 ~~~
 
 Create a new order packing instruction.
@@ -34,7 +34,7 @@ Create a new order packing instruction.
 1 _string_
 : Note
 
-2 _object_
+2 _object|null_
 : Additional Options (see "[Order Packing](#order_packing_properties)") 
 {:.code-defs.wide}
 
@@ -93,6 +93,82 @@ An object with the new [Order Packing](#order_packing_properties). The "file_con
 | ---- | ------- |
 | 100 | Invalid data given. Details in error message. |
 | 102 | Requested order does not exist. |
+
+----
+
+order_packing.edit
+===========
+
+~~~ slim
+order_packing.edit (string $packingId, string|null $note, object|null $options)
+~~~
+
+Create a new order packing instruction.
+
+#### Parameters
+
+0 _string_
+: Packing ID.
+
+1 _string|null_
+: Note
+
+2 _object|null_
+: Additional Options (see "[Order Packing](#order_packing_properties)") 
+{:.code-defs.wide}
+
+#### Return Value
+ 
+An object with the updated [Order Packing](#order_packing_properties). The "file_content" property is not returned. Use [order_packing.info](#order_packing_info) method to retrieve it.
+
+#### Example Request
+
+```json
+{
+    "jsonrpc" : 2.0,
+    "id" : 1234,
+    "method" : "call",
+    "params" : [
+        "be1c13ed4e03f0ed7f1e4053dfff9658",
+        "order_packing.edit",
+        [
+            {
+                "print_copies" : "one_per_order"
+            }
+        ]
+    ]
+}
+```
+
+#### Example Response
+
+```json
+{
+    "jsonrpc" : 2.0,
+    "id" : 1234,
+    "error" : null,
+    "result" : {
+        "packing_id" : 1,
+        "order_id" : 118,
+        "unique_id" : "100000309",
+        "note" : "Place Amazon FBA Label in a pouch",
+        "file_name" : "amazon_fba_3425232.pdf",
+        "print_copies" : "one_per_order",
+        "print_target" : "LASER"
+    }
+}
+```
+
+----
+
+#### Error Codes
+
+| code | message |
+| ---- | ------- |
+| 100 | Invalid data given. Details in error message. |
+| 101 | Requested order packing does not exist. |
+
+
  
 #### Entity Properties
 
