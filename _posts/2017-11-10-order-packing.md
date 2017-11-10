@@ -109,7 +109,7 @@ Modify the order packing instruction.
 
 #### Parameters
 
-0 _string_
+0 _string|int_
 : Packing ID
 
 1 _string|null_
@@ -186,7 +186,7 @@ Retrieve full order packing information.
 
 #### Parameters
 
-0 _string_
+0 _string|int_
 : Packing ID
 
 1 _array|null_
@@ -317,6 +317,55 @@ An array of objects. Each object will contain [Order Packing](#order_packing_pro
 | ---- | ------- |
 | 100 | Invalid data given. Details in error message. |
 | 102 | Requested order does not exist. |
+
+----
+
+<h1 id="order_packing_delete">
+order_packing.delete
+</h1>
+
+~~~ slim
+order_packing.delete (string $packingId)
+~~~
+
+Delete order packing.
+
+#### Parameters
+
+0 _string|int_
+: Packing ID
+
+#### Return Value
+
+true if the order packing was deleted.
+
+#### Example Request
+
+```json
+{
+    "jsonrpc" : 2.0,
+    "id" : 1234,
+    "method" : "call",
+    "params" : [
+        "be1c13ed4e03f0ed7f1e4053dfff9658",
+        "order_packing.delete",
+        [
+            123
+        ]
+    ]
+}
+```
+
+#### Example Response
+
+```json
+{
+    "jsonrpc" : 2.0,
+    "id" : 1234,
+    "error" : null,
+    "result" : true
+}
+```
  
 #### Entity Properties
 
