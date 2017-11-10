@@ -179,7 +179,7 @@ order_packing.info
 </h1>
 
 ~~~ slim
-order_packing.info (string $packingId, object|null $fields)
+order_packing.info (string $packingId, array|null $fields = [])
 ~~~
 
 Retrieve full order packing information.
@@ -253,7 +253,7 @@ order_packing.list
 </h1>
 
 ~~~ slim
-order_packing.list (string $orderUniqueId, object|null $fields)
+order_packing.list (string $orderUniqueId, array|null $fields = [])
 ~~~
 
 Create a new order packing instruction.
