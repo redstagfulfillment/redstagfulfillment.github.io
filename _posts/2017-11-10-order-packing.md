@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Packing"
+title: "Order Packing"
 category: ref
 parent: "Order"
 date: 2017-11-10 14:42:47
@@ -245,6 +245,78 @@ the "file_content" property.
 | ---- | ------- |
 | 100 | Invalid data given. Details in error message. |
 | 101 | Requested order packing does not exist. |
+
+----
+
+<h1 id="order_packing_list">
+order_packing.list
+</h1>
+
+~~~ slim
+order_packing.list (string $orderUniqueId, object|null $fields)
+~~~
+
+Create a new order packing instruction.
+
+#### Parameters
+
+0 _string_
+: Order unique ID
+
+1 _string|null_
+: Fields
+
+#### Return Value
+ 
+An array of objects. Each object will contain [Order Packing](#order_packing_properties) properties. Include "file_content" to the list of the fields to return the "file_content" property.
+
+#### Example Request
+
+```json
+{
+    "jsonrpc" : 2.0,
+    "id" : 1234,
+    "method" : "call",
+    "params" : [
+        "be1c13ed4e03f0ed7f1e4053dfff9658",
+        "order_packing.list",
+        [
+            "100000309"
+        ]
+    ]
+}
+```
+
+#### Example Response
+
+```json
+{
+    "jsonrpc" : 2.0,
+    "id" : 1234,
+    "error" : null,
+    "result" : [
+        {
+            "packing_id" : 1,
+            "order_id" : 118,
+            "unique_id" : "100000309",
+            "note" : "Place Amazon FBA Label in a pouch",
+            "file_name" : "amazon_fba_3425232.pdf",
+            "print_copies" : "one_per_shipment",
+            "print_target" : "LASER"
+        },
+        ...
+    ]
+}
+```
+
+----
+
+#### Error Codes
+
+| code | message |
+| ---- | ------- |
+| 100 | Invalid data given. Details in error message. |
+| 102 | Requested order does not exist. |
  
 #### Entity Properties
 
