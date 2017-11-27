@@ -78,7 +78,7 @@ Retrieve list of packages by filters. Package data can be customized by specifyi
         <th>package_id</th>
         <td>
             <pre><code>{ "package_id" : "123" }</code></pre>
-            The "Package ID" property.
+            The internal package ID.
         </td>
     </tr>
     <tr>
