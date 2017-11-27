@@ -75,6 +75,13 @@ Retrieve list of packages by filters. Package data can be customized by specifyi
 <table class="table-striped">
 <tbody>
     <tr>
+        <th>package_id</th>
+        <td>
+            <pre><code>{ "package_id" : "123" }</code></pre>
+            The "Package ID" property.
+        </td>
+    </tr>
+    <tr>
         <th>shipment_id</th>
         <td>
             <pre><code>{ "shipment_id" : "100000005" }</code></pre>
