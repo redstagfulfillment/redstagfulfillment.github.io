@@ -64,6 +64,18 @@ The following shipping methods are supported by the API where a "shipping_method
 | amazon_NextDay | Amazon One-Day Delivery |
 | amazon_Expedited | Amazon Expedited Delivery |
 
+#### Virtual Methods
+
+| Code | Description |
+|:-----|:-------------|
+| cheapest_TWO_DAY | Cheapest 2 Day Air |
+| cheapest_THREE_DAY | Cheapest 3 Day Air |
+| cheapest_ALL | Cheapest All |
+| cheapest_GROUND | Cheapest Ground |
+| cheapest_ON_TIME | Cheapest On Time |
+| cheapest_OVERNIGHT | Cheapest Overnight |
+| cheapest_POSTAL | Cheapest Postal |
+
 #### Other
 
 | Code | Description |
