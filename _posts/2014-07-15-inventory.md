@@ -16,6 +16,7 @@ order: 10
 #### Entity Properties
 
  * [Inventory Item](#inventory_item)
+ * [Inventory Lot](#lot_properties)
 
 ----
 
