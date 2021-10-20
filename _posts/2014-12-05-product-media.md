@@ -489,7 +489,7 @@ True, if the image has been removed
     <tr>
         <th>url</th>
         <td>
-            <pre><code>{ "url" : "http://redstagfulfillment.com/backend/media/catalog/product/b/l/blackberry8100_2.jpg" }</code></pre>
+            <pre><code>{ "url" : "https://wms.redstagfulfillment.com/media/catalog/product/b/l/blackberry8100_2.jpg" }</code></pre>
         </td>
     </tr>
     <tr>
