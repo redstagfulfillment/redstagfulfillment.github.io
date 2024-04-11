@@ -1,3 +1,5 @@
-This repository is for managing the API docs.
+This repository is no longer being used and has been archived for historical purposes.
 
-Read the docs at http://docs.redstagfulfillment.com/
+If you have reached this repository because you are looking for documenttation on ShipSTream APIs, please go to the following URL:
+
+http://docs.redstagfulfillment.com/
